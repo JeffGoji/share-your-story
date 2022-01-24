@@ -46,3 +46,5 @@ type Mutation {
     addComment(storyId: ID!, commentBody: String!): Story
 }
 `;
+
+module.exports = typeDefs;
