@@ -35,7 +35,7 @@ type Query {
     users: [User]
     user(username: String!): User
     stories(username: String!): [Story]
-    thought(_id: ID!): Story
+    story(_id: ID!): Story
 
 }
 
