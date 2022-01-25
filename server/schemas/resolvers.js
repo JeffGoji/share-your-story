@@ -48,13 +48,13 @@ const resolvers = {
             const user = await User.findOne({ username });
 
             if (!user) {
-                throw new AuthenticationError('Incorrect Login Information.')
+                throw new AuthenticationError('Incorrect username.')
             }
 
             const correctPw = await User.findOne({ password });
 
             if (!correctPw) {
-                throw new AuthenticationError('Incorrect Login Information.')
+                throw new AuthenticationError('Incorrect Password.')
             }
 
             const token = signToken(user);

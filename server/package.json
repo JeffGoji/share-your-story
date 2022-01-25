@@ -1,7 +1,6 @@
 {
   "name": "mern-server",
   "version": "1.0.0",
-  "description": "",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
@@ -20,5 +19,7 @@
     "mongoose": "^6.1.7",
     "nodemon": "^2.0.15",
     "stripe": "^8.199.0"
-  }
+  },
+  "devDependencies": {},
+  "description": ""
 }
