@@ -1,7 +1,7 @@
 import { gql } from "@apollo/client";
 
 export const QUERY_STORIES = gql`
-  query stories($username: String) {
+  query stories($username: String!) {
     stories(username: $username) {
       _id
       storyText
