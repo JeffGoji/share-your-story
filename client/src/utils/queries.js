@@ -1,36 +1,36 @@
 import { gql } from "@apollo/client";
 
-export const QUERY_THOUGHTS = gql`
-  query thoughts($username: String) {
-    thoughts(username: $username) {
+export const QUERY_STORIES = gql`
+  query stories($username: String) {
+    stories(username: $username) {
       _id
-      thoughtText
+      storyText
       createdAt
       username
-      reactionCount
-      reactions {
+      commentCount
+      comments {
         _id
         createdAt
         username
-        reactionBody
+        commentBody
       }
     }
   }
 `;
 
-export const QUERY_THOUGHT = gql`
-  query thought($id: ID!) {
-    thought(_id: $id) {
+export const QUERY_STORY = gql`
+  query story($id: ID!) {
+    story(_id: $id) {
       _id
-      thoughtText
+      storyText
       createdAt
       username
-      reactionCount
-      reactions {
+      commentCount
+      comments {
         _id
         createdAt
         username
-        reactionBody
+        commentBody
       }
     }
   }
@@ -42,16 +42,12 @@ export const QUERY_USER = gql`
       _id
       username
       email
-      friendCount
-      friends {
+      region
+      stories {
         _id
-        username
-      }
-      thoughts {
-        _id
-        thoughtText
+        storyText
         createdAt
-        reactionCount
+        commentCount
       }
     }
   }
@@ -63,23 +59,19 @@ export const QUERY_ME = gql`
       _id
       username
       email
-      friendCount
-      thoughts {
+      region
+      stories {
         _id
-        thoughtText
+        storyText
         createdAt
-        reactionCount
-        reactions {
+        commentCount
+        comments {
           _id
           createdAt
-          reactionBody
+          commentBody
           username
         }
-      }
-      friends {
-        _id
-        username
-      }
+      }     
     }
   }
 `;
@@ -90,11 +82,8 @@ export const QUERY_ME_BASIC = gql`
       _id
       username
       email
-      friendCount
-      friends {
-        _id
-        username
-      }
+      region
+      
     }
   }
 `;
