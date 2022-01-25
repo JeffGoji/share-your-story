@@ -51,7 +51,7 @@ const resolvers = {
                 throw new AuthenticationError('Incorrect username.')
             }
 
-            const correctPw = await User.findOne({ password });
+            const correctPw = await user.isCorrectPassword(password);
 
             if (!correctPw) {
                 throw new AuthenticationError('Incorrect Password.')
