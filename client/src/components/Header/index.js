@@ -19,14 +19,13 @@ function Header() {
 
         <header className="container-fluid" style={{
             height: '100%', backgroundImage: `url(${TxFlag})`,
-            overflow: 'hidden',
             backgroundSize: 'cover',
+            overflow: 'scroll',
             position: "fixed",
-            minheight: '100%',
-            minwidth: '100%',
             zIndex: -1,
             left: '0',
             top: '0',
+
         }} >
 
             <div className="row">

@@ -22,6 +22,10 @@ body {
   background-color: rgba(255, 255, 255, 0.89);
 }
 
+.box-margin {
+  padding-bottom: 200px;
+}
+
 .bg1 {
   background-image: linear-gradient(
       to bottom,
@@ -31,8 +35,8 @@ body {
     url(./assets/images/tlbg1.jpg);
   background-size: cover;
   background-repeat: no-repeat;
-  background-attachment: scroll;
-  overflow: hidden;
+  background-attachment: hidden;
+  overflow: auto;
 }
 /* Col styling */
 
