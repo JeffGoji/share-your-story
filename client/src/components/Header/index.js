@@ -10,8 +10,11 @@ import MainPage from '../../pages/index';
 import Login from '../../pages/Login'
 import SignUp from '../../pages/SignUp';
 import Resources from '../Resources/Resources'
+import StoryList from '../StoryList'
+import Profile from '../../pages/Profile'
 
 import TxFlag from '../../assets/images/txflag.jpg'
+
 
 function Header() {
 
@@ -38,6 +41,8 @@ function Header() {
                         <Route path="/login" element={<Login />} />
                         <Route path="/signup" element={<SignUp />} />
                         <Route path="/resources" element={<Resources />} />
+                        <Route path='/stories' element={<StoryList />} />
+                        <Route path='/profile' element={<Profile />} />
 
                     </Routes>
 

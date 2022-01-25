@@ -2,89 +2,93 @@ import React from 'react';
 
 import { Redirect, useParams } from 'react-router-dom';
 
-import ThoughtList from '../components/ThoughtList';
-import ThoughtForm from '../components/ThoughtForm';
+// import ThoughtList from '../components/ThoughtList';
+// import ThoughtForm from '../components/ThoughtForm';
+import Newsfeed from './Newsfeed';
 
 import { useQuery, useMutation } from '@apollo/client';
 import { QUERY_USER, QUERY_ME } from '../utils/queries';
 import Auth from '../utils/auth';
 
-import { ADD_FRIEND } from '../utils/mutations';
-
-
-import FriendList from '../components/FriendList';
 
 const Profile = () => {
 
-    const [addFriend] = useMutation(ADD_FRIEND);
 
-    const { username: userParam } = useParams();
+    // const { username: userParam } = useParams();
 
-    const { loading, data } = useQuery(userParam ? QUERY_USER : QUERY_ME, {
-        variables: { username: userParam }
-    });
-
+    // const { loading, data } = useQuery(userParam ? QUERY_USER : QUERY_ME, {
+    //     variables: { username: userParam }
+    // });
 
 
-    const user = data?.me || data?.user || {};
-    // redirect to personal profile page if username is the logged-in user's
-    if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
-        return <Redirect to="/profile" />;
-    }
 
-    if (loading) {
-        return <div>Loading...</div>;
-    }
+    // const user = data?.me || data?.user || {};
+    // // redirect to personal profile page if username is the logged-in user's
+    // if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
+    //     return <Redirect to="/profile" />;
+    // }
 
-    if (!user?.username) {
-        return (
-            <h4>
-                You need to be logged in to see this page. Use the navigation links above to sign up or log in!
-            </h4>
-        );
-    }
+    // if (loading) {
+    //     return <div>Loading...</div>;
+    // }
 
-    //Handle Click function:
-    const handleClick = async () => {
-        try {
-            await addFriend({
-                variables: { id: user._id }
-            });
-        } catch (e) {
-            console.error(e);
-        }
-    };
+    // if (!user?.username) {
+    //     return (
+    //         <h4>
+    //             You need to be logged in to see this page. Use the navigation links above to sign up or log in!
+    //         </h4>
+    //     );
+    // }
+
 
     return (
         <div>
-            <div className="flex-row mb-3">
-                <h2 className="bg-dark text-secondary p-3 display-inline-block">
-                    Viewing {userParam ? `${user.username}'s` : 'your'} profile.
-                </h2>
-
-                {userParam && (
-                    <button className="btn ml-auto" onClick={handleClick}>
-                        Add Friend
-                    </button>
-                )}
-            </div>
-
-            <div className="flex-row justify-space-between mb-3">
-                <div className="col-12 mb-3 col-lg-8">
-                    <ThoughtList thoughts={user.thoughts} title={`${user.username}'s thoughts...`} />
+            <main className="container-large box-bg rounded-3 card-shadow">
+                <div className="p-4 p-md-5 mb-4 text-white rounded bg-dark">
+                    <div className="col-md-6 px-0">
+                        <h1 className="display-4 fst-italic">Title of latest post</h1>
+                        <p className="lead my-3">Multiple lines of text that form the lede, informing new readers quickly and efficiently about what’s most interesting in this post’s contents.</p>
+                        <p className="lead mb-0"><a href="#" className="text-white fw-bold">Continue reading...</a></p>
+                    </div>
                 </div>
 
-                <div className="col-12 col-lg-3 mb-3">
-                    <FriendList
-                        username={user.username}
-                        friendCount={user.friendCount}
-                        friends={user.friends}
-                    />
+                <div className="row mb-2">
+                    <div className="col-md-6">
+                        <div className="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                            <div className="col p-4 d-flex flex-column position-static">
+
+                                <h3 className="mb-0">Post Title</h3>
+                                <div className="mb-1 text-muted">Nov 12</div>
+                                <p className="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
+                                <a href="#" className="stretched-link">Continue reading</a>
+                            </div>
+                            <div className="col-auto d-none d-lg-block">
+                                <svg className="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c" /><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div className="col-md-6">
+                        <div className="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                            <div className="col p-4 d-flex flex-column position-static">
+
+                                <h3 className="mb-0">Post title</h3>
+                                <div className="mb-1 text-muted">Nov 11</div>
+                                <p className="mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
+                                <a href="#" className="stretched-link">Continue reading</a>
+                            </div>
+                            <div className="col-auto d-none d-lg-block">
+                                <svg className="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c" /><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div className="mb-3">{!userParam && <ThoughtForm />}</div>
+            </main>
         </div>
-    );
-};
+
+    )
+}
+
 
 export default Profile;

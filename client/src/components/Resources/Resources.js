@@ -3,6 +3,7 @@ import React from "react";
 //Pages:
 import TxLaw from "../../pages/TxLaw";
 import Newsfeed from "../../pages/Newsfeed";
+import ArticleList from '../Articles'
 
 
 function MainPage() {
@@ -16,8 +17,9 @@ function MainPage() {
         <p className="text-center p-2">On this page you will find links to articles and a form to get in touch with us to help you find a lawyer for your case.</p>
         <div className="row">
           <div className="col-sm-12 col-md-12 col-lg-4 col-xl-5 mt-4">
-            <h3 className="text-center">Articles</h3>
-            <TxLaw />
+
+            <ArticleList />
+            {/* <TxLaw /> */}
           </div>
 
           <div className="col-sm-12 col-md-12 col-lg-4 col-xl-5 mt-4">
