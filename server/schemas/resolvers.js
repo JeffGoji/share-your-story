@@ -1,18 +1,30 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User, Story, Comment } = require('../models');
+const { User, Story } = require('../models');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
     Query: {
 
         me: async (parent, args, context) => {
-            if(context.user) {
+            if (context.user) {
 
-                const userData = await User.findOne({ _id: context.user._id })
-                
+                const userData = await User.findOne({ _id: context.user._id})
                 .select('-__v -password')
-                .populate('story')
-                .populate('comment');
+                .populate( { 
+                    path: 'stories',
+                    model: 'Story',
+                    localField: '_id',
+                    foreignField: 'item',
+                    strictPopulate: false
+    })
+                .populate({
+                    path: 'comments',
+                    model: 'Comment',
+                    localField: '_id',
+                    foreignField: 'item',
+                    strictPopulate: false
+
+    })
 
                 return userData;
             }
@@ -23,15 +35,41 @@ const resolvers = {
         users: async () => {
             return User.find()
             .select('-__v -password')
-            .populate('Story')
-            .populate('comment');
+            .populate( { 
+                path: 'stories',
+                model: 'Story',
+                localField: '_id',
+                foreignField: 'item',
+                strictPopulate: false
+})
+            .populate({
+                path: 'comments',
+                model: 'Comment',
+                localField: '_id',
+                foreignField: 'item',
+                strictPopulate: false
+
+})
         },
 
         user: async (parent, { username }) => {
             return User.findOne({ username })
             .select('-__v -password')
-            .populate('Story')
-            .populate('comment');
+            .populate( { 
+                path: 'stories',
+                model: 'Story',
+                localField: '_id',
+                foreignField: 'item',
+                strictPopulate: false
+})
+            .populate({
+                path: 'comments',
+                model: 'Comment',
+                localField: '_id',
+                foreignField: 'item',
+                strictPopulate: false
+
+})
         },
 
         stories: async (parent, { username }) => {
