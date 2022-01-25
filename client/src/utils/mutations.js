@@ -52,7 +52,7 @@ export const ADD_STORY = gql`
 
 export const ADD_COMMENT = gql`
   mutation addComment($storyId: ID!, $commentBody: String!) {
-    addComment(storyId: $storyId, commnetBody: $commentBody) {
+    addComment(storyId: $storyId, commentBody: $commentBody) {
       _id
       commentCount
       comments {
