@@ -7,13 +7,27 @@ import {
 
 import Nav from '../Nav';
 import MainPage from '../../pages/index';
-import Test from '../../pages/test'
+import Login from '../../pages/Login'
+import SignUp from '../../pages/SignUp';
+import Resources from '../Resources/Resources'
+
+import TxFlag from '../../assets/images/txflag.jpg'
 
 function Header() {
 
     return (
 
-        <header className="container-fluid">
+        <header className="container-fluid" style={{
+            height: '100%', backgroundImage: `url(${TxFlag})`,
+            overflow: 'hidden',
+            backgroundSize: 'cover',
+            position: "fixed",
+            minheight: '100%',
+            minwidth: '100%',
+            zIndex: -1,
+            left: '0',
+            top: '0',
+        }} >
 
             <div className="row">
 
@@ -22,8 +36,9 @@ function Header() {
                     <Routes>
                         <Route path="/" element={<MainPage />} />
                         <Route path="/main" element={<MainPage />} />
-                        <Route path="/test" element={<Test />} />
-
+                        <Route path="/login" element={<Login />} />
+                        <Route path="/signup" element={<SignUp />} />
+                        <Route path="/resources" element={<Resources />} />
 
                     </Routes>
 

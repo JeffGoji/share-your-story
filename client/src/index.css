@@ -1,8 +1,70 @@
+/*Root custom CSS style section*/
+:root {
+  --primary-color: rgb(0, 0, 0);
+  --secondary-color: rgb(255, 253, 253);
+  --tertiary-color: rgb(230, 230, 230);
+  --card-color: rgb(233, 233, 233);
+  --shadow: rgb(0, 0, 0);
+  --outline: rgb(94, 0, 202);
+  --button: rgb(174, 174, 180);
+}
+
 body {
   font-family: sans-serif;
   font-size: 1.2rem;
 }
 
+.shadow-text {
+  text-shadow: 2px, 2px, 5px rgba(rgb(255, 0, 0));
+}
+
+.box-bg {
+  background-color: rgba(255, 255, 255, 0.89);
+}
+
+.bg1 {
+  background-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.5)
+    ),
+    url(./assets/images/tlbg1.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  overflow: hidden;
+}
+/* Col styling */
+
+/* Card styling */
+
+.card-header {
+  background: linear-gradient(to top, rgb(252, 2, 2), rgb(0, 17, 255));
+  font-family: "Libre Barcode 39 Text", cursive;
+  font-family: "Monoton", cursive;
+  font-family: "Orbitron", sans-serif;
+  color: var(--secondary-color);
+  text-shadow: 2px 2px 2px black;
+}
+
+.card-title {
+  font-weight: bold;
+  font-size: 1.5rem;
+  /* text-shadow: 2px 2px 2px rgb(16, 189, 0); */
+}
+
+.card-shadow {
+  box-shadow: 2px 5px 15px var(--shadow);
+}
+
+.card a:hover,
+.card a:active .card a.active {
+  color: #002575;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* Footer styling */
 footer {
   background-color: rgb(0, 0, 0);
   color: var(--secondary-color);
@@ -16,6 +78,6 @@ footer a {
 footer a:hover,
 footer a:active,
 footer a.active {
-  color: #2d8ddb;
+  color: #ffffff;
   text-decoration: none;
 }
