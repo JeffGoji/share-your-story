@@ -4,7 +4,6 @@ import React from 'react';
 // import { LOGIN_USER } from '../utils/mutations';
 // import Auth from '../utils/auth';
 
-import car from '../assets/images/tlbg1.jpg'
 
 function Login() {
     // const [formState, setFormState] = useState({ email: '', password: '' });
@@ -70,7 +69,7 @@ function Login() {
                         // value={formState.password}
                         // onChange={handleChange}
                         />
-
+                        {/* </form> */}
                         <button className='btn btn-primary d-block w-100 m-1' type='submit'>
                             Submit
                         </button>
