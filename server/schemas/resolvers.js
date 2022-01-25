@@ -1,5 +1,5 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User, Story } = require('../models');
+const { User, Story, Comment } = require('../models');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
@@ -7,10 +7,12 @@ const resolvers = {
 
         me: async (parent, args, context) => {
             if(context.user) {
+
                 const userData = await User.findOne({ _id: context.user._id })
+                
                 .select('-__v -password')
-                .populate('stories')
-                .populate('comments')
+                .populate('story')
+                .populate('comment');
 
                 return userData;
             }
@@ -21,15 +23,15 @@ const resolvers = {
         users: async () => {
             return User.find()
             .select('-__v -password')
-            .populate('stories')
-            .populate('comments')
+            .populate('Story')
+            .populate('comment');
         },
 
         user: async (parent, { username }) => {
             return User.findOne({ username })
             .select('-__v -password')
-            .populate('stories')
-            .populate('comments')
+            .populate('Story')
+            .populate('comment');
         },
 
         stories: async (parent, { username }) => {
@@ -87,17 +89,17 @@ const resolvers = {
 
         addComment: async (parent, { storyId, commentBody }, context) => {
             if (context.user) {
-                const updatedStory = await Story.findOneAndUpdate(
-                    { _id: storyId },
-                    { $push: { stories: { commentBody, username: context.user.username } } },
-                    { new: true, runValidators: true }
-                );
-
-                return updatedStory;
+              const updatedStory = await Story.findOneAndUpdate(
+                { _id: storyId },
+                { $push: { comments: { commentBody, username: context.user.username } } },
+                { new: true, runValidators: true }
+              );
+          
+              return updatedStory;
             }
-
-            throw new AuthenticationError('You need to be Logged In!');
-        }
+          
+            throw new AuthenticationError('You need to be logged in!');
+          }
     }
 };
 
