@@ -44,6 +44,8 @@ type Mutation {
     addUser(username: String!, email: String!, password: String!, region: String): Auth
     addStory(storyText: String!): Story
     addComment(storyId: ID!, commentBody: String!): Story
+    updateStory(storyId: ID!, storyText: String!): Story
+    deleteStory(storyId: ID!): Story
 }
 `;
 

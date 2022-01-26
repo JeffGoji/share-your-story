@@ -64,3 +64,22 @@ export const ADD_COMMENT = gql`
     }
   }
 `;
+
+export const UPDATE_STORY = gql`
+mutation updateStory($storyId: ID!, $storyText: String!) {
+  updateStory(storyId: $storyId, storyText: $storyText) {
+    storyText
+   
+  }
+}
+`;
+
+export const DELETE_STORY = gql`
+mutation deleteStory($storyId: ID!) {
+  deleteStory(storyId: $storyId) {
+    storyText
+    username
+   
+  }
+}
+`;

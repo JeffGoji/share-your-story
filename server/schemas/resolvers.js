@@ -95,6 +95,33 @@ const resolvers = {
             }
           
             throw new AuthenticationError('You need to be logged in!');
+          },
+
+          updateStory: async (parent, {storyId, storyText }, context) => {
+              if (context.user) {
+                  const updateStory = await Story.findOneAndUpdate(
+                      { _id: storyId },
+                      { storyText, username: context.user.username },
+                      { new: true, runValidators: true }
+                  );
+
+                  return updateStory;
+              }
+
+              throw new AuthenticationError('You need to be logged in!');
+          },
+
+          deleteStory: async (parent, { storyId }, context) => {
+              if (context.user) {
+                  const removeStory = await Story.findOneAndDelete(
+                      {_id: storyId },
+                      {new: true, runValidators: true }
+                  );
+
+                  return removeStory;
+              }
+
+              throw new AuthenticationError('You need to be logged in!');
           }
     }
 };
