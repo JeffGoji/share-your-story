@@ -47,7 +47,8 @@ body {
 /* Card styling */
 
 .card-header {
-  background: linear-gradient(to top, rgb(252, 2, 2), rgb(0, 17, 255));
+  background-color: rgb(132, 132, 141);
+  /* background: linear-gradient(to top, rgb(0, 0, 0), rgb(255, 0, 0)); */
   font-family: "Libre Barcode 39 Text", cursive;
   font-family: "Monoton", cursive;
   font-family: "Orbitron", sans-serif;
