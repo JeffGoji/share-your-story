@@ -20,7 +20,6 @@ const userSchema = new Schema(
       required: true,
       minlength: 5,
     },
-
     region: {
       type: String,
       required: true,
