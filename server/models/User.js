@@ -20,12 +20,14 @@ const userSchema = new Schema(
       required: true,
       minlength: 5,
     },
-    // region: {
-    //   type: String,
-    //   required: true,
-    //   minlength: 5,
-    // },
-    story: [
+    
+    region: {
+      type: String,
+      required: true,
+      minlength: 5,
+    },
+    stories: [
+
       {
         type: Schema.Types.ObjectId,
         ref: "Story",
