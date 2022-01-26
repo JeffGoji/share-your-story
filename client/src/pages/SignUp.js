@@ -1,41 +1,78 @@
-import React from 'react';
-// import React, { useState } from 'react';
-// import { useMutation } from '@apollo/client';
-// import { ADD_USER } from '../utils/mutations';
-// import Auth from '../utils/auth';
+// import React from 'react';
+import React, { useState, } from 'react';
+import { useMutation } from '@apollo/client';
+import { ADD_USER } from '../utils/mutations';
+import Auth from '../utils/auth';
 
 
-function SignUp() {
-    // const SignUp = () => {
-    //     const [formState, setFormState] = useState({ username: '', email: '', password: '' });
-    //     const [addUser, { error }] = useMutation(ADD_USER);
-    //     // update state based on form input changes
-    //     const handleChange = (event) => {
-    //         const { name, value } = event.target;
+// function SignUp() {
+const SignUp = () => {
+    const [formState, setFormState] = useState({ username: '', email: '', password: '' });
+    const [addUser, { error }] = useMutation(ADD_USER);
+    const [validated] = useState(false);
+    // const [showAlert, setShowAlert] = useState(false);
 
-    //         setFormState({
-    //             ...formState,
-    //             [name]: value,
+    // useEffect(() => {
+    //     if (error) {
+    //         setShowAlert(true);
+    //     } else {
+    //         setShowAlert(false);
+    //     }
+    // }, [error]);
+
+    // update state based on form input changes
+    const handleChange = (event) => {
+        const { name, value } = event.target;
+
+        setFormState({
+            ...formState,
+            [name]: value,
+        });
+    };
+
+    // submit form
+    // submit form (notice the async!)
+    // const handleFormSubmit = async event => {
+    //     event.preventDefault();
+
+    //     // use try/catch instead of promises to handle errors
+    //     try {
+    //         const { data } = await addUser({
+    //             variables: { ...formState }
     //         });
-    //     };
 
-    //     // submit form
-    //     // submit form (notice the async!)
-    //     const handleFormSubmit = async event => {
-    //         event.preventDefault();
+    //         Auth.login(data.addUser.token);
+    //     } catch (e) {
+    //         console.error(e);
+    //     }
+    // };
+    const handleFormSubmit = async (event) => {
+        event.preventDefault();
 
-    //         // use try/catch instead of promises to handle errors
-    //         try {
-    //             const { data } = await addUser({
-    //                 variables: { ...formState }
-    //             });
+        // check if form has everything (as per react-bootstrap docs)
+        const form = event.currentTarget;
+        if (form.checkValidity() === false) {
+            event.preventDefault();
+            event.stopPropagation();
+        }
 
-    //             Auth.login(data.addUser.token);
-    //         } catch (e) {
-    //             console.error(e);
-    //         }
-    //     };
+        // Updated with Apollo/GRaphql syntax
+        try {
+            const { data } = await addUser({ variables: { ...formState } });
 
+            console.log(data);
+            Auth.login(data.addUser.token);
+        } catch (e) {
+            console.error(e);
+            // setShowAlert(true);
+        }
+
+        setFormState({
+            username: "",
+            email: "",
+            password: "",
+        });
+    };
 
 
     return (
@@ -47,42 +84,75 @@ function SignUp() {
                     </div>
                     <div className="card-body">
                         <h5 className="card-title">Sign up below to join the community and get started sharing your story</h5>
-                        {/* <form onSubmit={handleFormSubmit}> */}
-                        < input
-                            className='form-control m-1'
-                            placeholder='Your username'
-                            name='username'
-                            type='username'
-                            id='username'
-                        // value={formState.username}
-                        // onChange={handleChange}
-                        />
-                        <input
-                            className='form-control m-1'
-                            placeholder='Your email'
-                            name='email'
-                            type='email'
-                            id='email'
-                        // value={formState.email}
-                        // onChange={handleChange}
-                        />
-                        <input
-                            className='form-control m-1'
-                            placeholder='******'
-                            name='password'
-                            type='password'
-                            id='password'
-                        // value={formState.password}
-                        // onChange={handleChange}
-                        />
+                        <form noValidate={validated} onSubmit={handleFormSubmit}>
 
-                        <button className='btn btn-primary d-block w-100 m-1' type='submit'>
-                            Submit
-                        </button>
+
+                            Something went wrong with your login credentials!
+
+
+                            <label className="form-label mt-5">Username</label>
+                            < input
+                                className='form-control m-1'
+                                placeholder='Your username'
+                                name='username'
+                                type='username'
+                                id='username'
+                                value={formState.username}
+                                onChange={handleChange}
+                            />
+
+                            <label className="form-label">Your email</label>
+                            <input
+                                className='form-control m-1'
+                                placeholder='Someone@email.com'
+                                name='email'
+                                type='email'
+                                id='email'
+                                value={formState.email}
+                                onChange={handleChange}
+                            />
+                            <label className="form-label">Your Password</label>
+                            <input
+                                className='form-control m-1 mb-3'
+                                placeholder='******'
+                                name='password'
+                                type='password'
+                                id='password'
+                                value={formState.password}
+                                onChange={handleChange}
+                            />
+                            {/* <label className="form-label">Your Region</label>
+                            <select value={formState.region}
+                                onChange={handleChange}
+                                className='btn-primary'>
+                                <option value="Gulf Coast Area">Gulf Coast Area</option>
+                                <option value="Centeral Texas">Central Texas</option>
+                                <option value="South Texas">South Texas </option>
+                                <option value="North_Texas">North Texas</option>
+                                <option value="West_Texas">West Texas</option>
+                            </select> */}
+
+
+                            <button
+                                disabled={
+                                    !(
+                                        formState.username &&
+                                        formState.email &&
+                                        formState.password
+
+                                    )
+                                }
+                                type="submit"
+                                variant="success"
+                                className='btn btn-primary d-block w-100 m-1'>
+                                Submit
+                            </button>
+                        </form>
+                        {error && <div>Sign up failed</div>}
                     </div>
                 </div>
-            </div>
-        </div>
+            </div >
+        </div >
     )
 }
 
