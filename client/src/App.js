@@ -3,7 +3,7 @@ import {
   BrowserRouter,
   Routes,
   Route,
-  Router
+
 } from "react-router-dom";
 
 import Header from './components/Header'
@@ -61,7 +61,7 @@ function App() {
             <Route path="/signup" element={<SignUp />} />
             <Route path="/resources" element={<Resources />} />
             <Route path='/stories' element={<StoryList />} />
-            <Route path='/profile/:username:?' element={<Profile />} />
+            <Route path='/profile' element={<Profile />} />
 
           </Routes>
 
