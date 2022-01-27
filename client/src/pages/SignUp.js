@@ -38,7 +38,7 @@ const SignUp = () => {
             event.stopPropagation();
         }
 
-        // Updated with Apollo/GRaphql syntax
+        // Updated with Apollo/Graphql syntax
         try {
             const { data } = await addUser({ variables: { ...formState } });
 
@@ -68,9 +68,9 @@ const SignUp = () => {
                         <h5 className="card-title">Sign up below to join the community and get started sharing your story</h5>
                         <form noValidate={validated} onSubmit={handleFormSubmit}>
 
-
-                            Something went wrong with your login credentials!
-
+                            {/* <alert dismissible onClose={() => setShowAlert(false)} show={showAlert} variant='danger'>
+                                Something went wrong with your login credentials!
+                            </alert> */}
 
                             <label className="form-label mt-5">Username</label>
                             < input

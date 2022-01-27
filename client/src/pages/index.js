@@ -1,6 +1,13 @@
 import React from "react";
+import Auth from '../utils/auth';
+import Articles from '../components/Articles'
+
+
+
 
 function MainPage() {
+
+    const loggedIn = Auth.loggedIn();
 
     return (
 
@@ -14,8 +21,15 @@ function MainPage() {
                     Medical errors account for as many as 251,000 deaths per year as well as permanent injuries to the survivors of medical malpractice. Unfortunately the survivors are often not given a chance to speak about there experiences, and we aim to change that as well as support them in the recovery process and give them a chance at justice and making their voices heard.
 
                 </blockquote>
-            </div>
-        </div >
+                {loggedIn && (
+
+                    <div className="col-12 mb-3">
+                        <Articles />
+                    </div>
+                )}
+
+            </div >
+        </div>
 
     );
 }

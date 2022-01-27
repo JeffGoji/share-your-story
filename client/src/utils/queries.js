@@ -58,7 +58,11 @@ export const QUERY_ME = gql`
       _id
       username
       email
+<<<<<<< HEAD
      stories {
+=======
+      stories {
+>>>>>>> 7f6e68b371f1186ba74032ad4b140acd01d5cd2d
         _id
         storyText
         createdAt
@@ -80,7 +84,11 @@ export const QUERY_ME_BASIC = gql`
       _id
       username
       email
+<<<<<<< HEAD
             
+=======
+      
+>>>>>>> 7f6e68b371f1186ba74032ad4b140acd01d5cd2d
     }
   }
 `;

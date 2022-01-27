@@ -12,17 +12,68 @@ export const LOGIN_USER = gql`
   }
 `;
 
+// export const LOGIN_USER = gql`
+//   mutation login($username: String!, $password: String!) {
+//     login(username: $username, password: $password) {
+//       token
+//       user {
+//         _id
+//         username
+//       }
+//     }
+//   }
+// `;
+
 export const ADD_USER = gql`
+<<<<<<< HEAD
   mutation addUser($username: String!, $email: String!, $password: String!) {
     addUser(username: $username, email: $email, password: $password) {
+=======
+
+  mutation addUser(
+    $username: String!
+    $email: String!
+    $password: String!
+  ) {
+    addUser(
+      username: $username
+      email: $email
+      password: $password
+    ) {
+>>>>>>> 7f6e68b371f1186ba74032ad4b140acd01d5cd2d
       token
       user {
         _id
         username
+<<<<<<< HEAD
+=======
+        email
+>>>>>>> 7f6e68b371f1186ba74032ad4b140acd01d5cd2d
       }
     }
   }
 `;
+
+
+// export const ADD_USER = gql`
+//   mutation addUser(
+//     $username: String!
+//     $email: String!
+//     $password: String!
+//   ) {
+//     addUser(
+//       username: $username
+//       email: $email
+//       password: $password
+//     ) {
+//       token
+//       user {
+//         username
+//         email
+//       }
+//     }
+//   }
+// `;
 
 export const ADD_STORY = gql`
   mutation addStory($storyText: String!) {
