@@ -30,11 +30,7 @@ import { setContext } from "@apollo/client/link/context";
 
 // GraphQL endpoint:
 const httpLink = createHttpLink({
-<<<<<<< HEAD
-  uri: "/graphql", 
-=======
-uri: 'http://localhost:3000/graphql',
->>>>>>> 7f6e68b371f1186ba74032ad4b140acd01d5cd2d
+uri: '/graphql',
 });
 
 
