@@ -4,7 +4,9 @@
   "description": "## Installation:",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "develop": "concurrently \"cd server && npm run watch\" \"cd client && npm start\""
   },
   "repository": {
     "type": "git",
@@ -12,6 +14,9 @@
   },
   "author": "",
   "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^5.1.0"
+  },
   "bugs": {
     "url": "https://github.com/JeffGoji/share-your-story/issues"
   },

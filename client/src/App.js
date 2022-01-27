@@ -1,7 +1,17 @@
 import React from 'react';
-
+import { Route, Routes } from "react-router-dom";
 import Header from './components/Header'
 import Footer from './components/Footer'
+import Nav from "./components/Nav";
+// import Articles from "./components/Articles";
+// import Resources from "./components/Resources";
+// import ContactForm from "./components/Contact";
+
+import Home from "./pages/Home"
+import Login from "./pages/Login";
+// import NoMatch from "./pages/NoMatch";
+import Profile from "./pages/Profile";
+import Signup from "./pages/SignUp";
 
 //styling
 import './index.css'
@@ -32,19 +42,23 @@ const client = new ApolloClient({
 
 
 function App() {
-
-
   return (
     <ApolloProvider client={client}>
-      <div>
-
-        <Header />
-
-        <Footer />
-
-      </div>
+      <Routes>
+        
+          <Nav />
+          <main>
+            <Route exact path="/" component={Home} />
+            <Route exact path="/login" component={Login} />
+            <Route exact path="/signup" component={Signup} />
+            <Route exact path="/profile/:username?" component={Profile} />
+          </main>
+          <Footer />
+        
+      </Routes>
     </ApolloProvider>
   );
 }
 
 export default App;
+
