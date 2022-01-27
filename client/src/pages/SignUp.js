@@ -1,5 +1,5 @@
 // import React from 'react';
-import React, { useState, } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useMutation } from '@apollo/client';
 import { ADD_USER } from '../utils/mutations';
 import Auth from '../utils/auth';
@@ -10,43 +10,25 @@ const SignUp = () => {
     const [formState, setFormState] = useState({ username: '', email: '', password: '' });
     const [addUser, { error }] = useMutation(ADD_USER);
     const [validated] = useState(false);
-    // const [showAlert, setShowAlert] = useState(false);
+    const [showAlert, setShowAlert] = useState(false);
 
-    // useEffect(() => {
-    //     if (error) {
-    //         setShowAlert(true);
-    //     } else {
-    //         setShowAlert(false);
-    //     }
-    // }, [error]);
+    useEffect(() => {
+        if (error) {
+            setShowAlert(true);
+        } else {
+            setShowAlert(false);
+        }
+    }, [error]);
 
     // update state based on form input changes
-    const handleChange = (event) => {
+    const handleInputChange = (event) => {
         const { name, value } = event.target;
-
-        setFormState({
-            ...formState,
-            [name]: value,
-        });
+        setFormState({ ...formState, [name]: value, });
     };
 
+
     // submit form
-    // submit form (notice the async!)
-    // const handleFormSubmit = async event => {
-    //     event.preventDefault();
-
-    //     // use try/catch instead of promises to handle errors
-    //     try {
-    //         const { data } = await addUser({
-    //             variables: { ...formState }
-    //         });
-
-    //         Auth.login(data.addUser.token);
-    //     } catch (e) {
-    //         console.error(e);
-    //     }
-    // };
-    const handleFormSubmit = async (event) => {
+    const handleFormSubmit = async event => {
         event.preventDefault();
 
         // check if form has everything (as per react-bootstrap docs)
@@ -64,13 +46,13 @@ const SignUp = () => {
             Auth.login(data.addUser.token);
         } catch (e) {
             console.error(e);
-            // setShowAlert(true);
+            setShowAlert(true);
         }
 
         setFormState({
-            username: "",
-            email: "",
-            password: "",
+            username: " ",
+            email: " ",
+            password: " ",
         });
     };
 
@@ -98,7 +80,7 @@ const SignUp = () => {
                                 type='username'
                                 id='username'
                                 value={formState.username}
-                                onChange={handleChange}
+                                onChange={handleInputChange}
                             />
 
                             <label className="form-label">Your email</label>
@@ -109,7 +91,7 @@ const SignUp = () => {
                                 type='email'
                                 id='email'
                                 value={formState.email}
-                                onChange={handleChange}
+                                onChange={handleInputChange}
                             />
                             <label className="form-label">Your Password</label>
                             <input
@@ -119,18 +101,18 @@ const SignUp = () => {
                                 type='password'
                                 id='password'
                                 value={formState.password}
-                                onChange={handleChange}
+                                onChange={handleInputChange}
                             />
                             {/* <label className="form-label">Your Region</label>
-                            <select value={formState.region}
-                                onChange={handleChange}
-                                className='btn-primary'>
-                                <option value="Gulf Coast Area">Gulf Coast Area</option>
-                                <option value="Centeral Texas">Central Texas</option>
-                                <option value="South Texas">South Texas </option>
-                                <option value="North_Texas">North Texas</option>
-                                <option value="West_Texas">West Texas</option>
-                            </select> */}
+                    <select value={formState.region}
+                        onChange={handleChange}
+                        className='btn-primary'>
+                        <option value="Gulf Coast Area">Gulf Coast Area</option>
+                        <option value="Centeral Texas">Central Texas</option>
+                        <option value="South Texas">South Texas </option>
+                        <option value="North_Texas">North Texas</option>
+                        <option value="West_Texas">West Texas</option>
+                    </select> */}
 
 
                             <button
