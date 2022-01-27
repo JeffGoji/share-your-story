@@ -1,7 +1,19 @@
 import React from 'react';
+import {
+  BrowserRouter,
+  Routes,
+  Route
+} from "react-router-dom";
 
 import Header from './components/Header'
+import Nav from './components/Nav';
 import Footer from './components/Footer'
+import MainPage from './pages/index';
+import Login from './pages/Login'
+import SignUp from './pages/SignUp';
+import Resources from './components/Resources'
+import StoryList from './components/StoryList'
+import Profile from './pages/Profile'
 
 //styling
 import './index.css'
@@ -36,13 +48,25 @@ function App() {
 
   return (
     <ApolloProvider client={client}>
-      <div>
-
+      <BrowserRouter>
         <Header />
+        <Nav />
+        <div className="container-fluid">
 
+          <Routes>
+            <Route path="/" element={<MainPage />} />
+            <Route path="/main" element={<MainPage />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<SignUp />} />
+            <Route path="/resources" element={<Resources />} />
+            <Route path='/stories' element={<StoryList />} />
+            <Route path='/profile' element={<Profile />} />
+
+          </Routes>
+
+        </div>
         <Footer />
-
-      </div>
+      </BrowserRouter>
     </ApolloProvider>
   );
 }
