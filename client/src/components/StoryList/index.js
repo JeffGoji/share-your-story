@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 function StoryList() {
 
     return (
-        <div className='d-flex justify-content-center box-bg-dark text-white'>
+        <div className='d-flex justify-content-center box-bg-dark text-white rounded-3'>
             <div className="px-4 pt-5 my-5 text-center border-bottom">
                 <h1 className="display-4 fw-bold">User Stories</h1>
                 <div className="col-lg-6 mx-auto">

@@ -1,17 +1,19 @@
 import React from 'react';
-import { Route, Routes } from "react-router-dom";
-import Header from './components/Header'
-import Footer from './components/Footer'
-import Nav from "./components/Nav";
-// import Articles from "./components/Articles";
-// import Resources from "./components/Resources";
-// import ContactForm from "./components/Contact";
+import {
+  BrowserRouter,
+  Routes,
+  Route
+} from "react-router-dom";
 
-import Home from "./pages/Home"
-import Login from "./pages/Login";
-// import NoMatch from "./pages/NoMatch";
-import Profile from "./pages/Profile";
-import Signup from "./pages/SignUp";
+import Header from './components/Header'
+import Nav from './components/Nav';
+import Footer from './components/Footer'
+import MainPage from './pages/index';
+import Login from './pages/Login'
+import SignUp from './pages/SignUp';
+import Resources from './components/Resources'
+import StoryList from './components/StoryList'
+import Profile from './pages/Profile'
 
 //styling
 import './index.css'
@@ -44,18 +46,25 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
-      <Routes>
-        
-          <Nav />
-          <main>
-            <Route exact path="/" component={Home} />
-            <Route exact path="/login" component={Login} />
-            <Route exact path="/signup" component={Signup} />
-            <Route exact path="/profile/:username?" component={Profile} />
-          </main>
-          <Footer />
-        
-      </Routes>
+      <BrowserRouter>
+        <Header />
+        <Nav />
+        <div className="container-fluid">
+
+          <Routes>
+            <Route path="/" element={<MainPage />} />
+            <Route path="/main" element={<MainPage />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<SignUp />} />
+            <Route path="/resources" element={<Resources />} />
+            <Route path='/stories' element={<StoryList />} />
+            <Route path='/profile' element={<Profile />} />
+
+          </Routes>
+
+        </div>
+        <Footer />
+      </BrowserRouter>
     </ApolloProvider>
   );
 }

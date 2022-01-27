@@ -10,7 +10,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "apollo-server": "^3.6.2",
     "apollo-server-express": "^3.6.2",
     "bcrypt": "^4.0.1",
     "express": "^4.17.2",
@@ -20,6 +19,5 @@
     "nodemon": "^2.0.15",
     "stripe": "^8.199.0"
   },
-  "devDependencies": {},
   "description": ""
 }
