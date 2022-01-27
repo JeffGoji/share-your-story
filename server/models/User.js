@@ -22,25 +22,11 @@ const userSchema = new Schema(
       required: true,
       minlength: 5,
     },
-<<<<<<< HEAD
-    // region: {
-    //   type: String,
-    //   required: false,
-    //   minlength: 5,
-    // },
-    stories: [
-      {
-        type: Schema.Types.ObjectId,
-        ref: "Story",
-      },
-    ],
-=======
     region: {
       type: String,
       minlength: 5,
     },
     stories: [storySchema.schema],
->>>>>>> 7f6e68b371f1186ba74032ad4b140acd01d5cd2d
   },
   {
     toJSON: {
