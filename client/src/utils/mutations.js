@@ -12,28 +12,50 @@ export const LOGIN_USER = gql`
   }
 `;
 
+// export const LOGIN_USER = gql`
+//   mutation login($username: String!, $password: String!) {
+//     login(username: $username, password: $password) {
+//       token
+//       user {
+//         _id
+//         username
+//       }
+//     }
+//   }
+// `;
+
 export const ADD_USER = gql`
-  mutation addUser(
-    $username: String!
-    $email: String!
-    $password: String!
-    $region: String!
-  ) {
-    addUser(
-      username: $username
-      email: $email
-      password: $password
-      region: $region
-    ) {
+  mutation addUser($username: String!, $email: String!, $password: String!) {
+    addUser(username: $username, email: $email, password: $password) {
       token
       user {
+        _id
         username
-        email
-        region
       }
     }
   }
 `;
+
+
+// export const ADD_USER = gql`
+//   mutation addUser(
+//     $username: String!
+//     $email: String!
+//     $password: String!
+//   ) {
+//     addUser(
+//       username: $username
+//       email: $email
+//       password: $password
+//     ) {
+//       token
+//       user {
+//         username
+//         email
+//       }
+//     }
+//   }
+// `;
 
 export const ADD_STORY = gql`
   mutation addStory($storyText: String!) {
