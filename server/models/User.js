@@ -1,5 +1,6 @@
 const { Schema, model } = require("mongoose");
 const bcrypt = require("bcrypt");
+const storySchema = require('./Story');
 
 
 const userSchema = new Schema(
@@ -21,17 +22,11 @@ const userSchema = new Schema(
       required: true,
       minlength: 5,
     },
-    // region: {
-    //   type: String,
-    //   required: true,
-    //   minlength: 5,
-    // },
-    stories: [
-      {
-        type: Schema.Types.ObjectId,
-        ref: "Story",
-      },
-    ],
+    region: {
+      type: String,
+      minlength: 5,
+    },
+    stories: [storySchema.schema],
   },
   {
     toJSON: {

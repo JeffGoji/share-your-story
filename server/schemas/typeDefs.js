@@ -6,7 +6,6 @@ type User {
     username: String
     email: String
     stories: [Story]
-
 }
 
 type Story {
