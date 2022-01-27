@@ -4,11 +4,16 @@ import { LOGIN_USER } from '../utils/mutations';
 import Auth from '../utils/auth';
 
 
+
+
+
 function Login() {
+
     const [formState, setFormState] = useState({ username: '', password: '' });
     const [login, { error }] = useMutation(LOGIN_USER);
     const [validated] = useState(false);
     const [showAlert, setShowAlert] = useState(false);
+
 
 
     useEffect(() => {
@@ -23,24 +28,18 @@ function Login() {
     const handleInputChange = (event) => {
         const { name, value } = event.target;
         setFormState({ ...formState, [name]: value });
+
     };
 
     const handleFormSubmit = async (event) => {
         event.preventDefault();
-
-        // check if form has everything (as per react-bootstrap docs)
-        const form = event.currentTarget;
-        if (form.checkValidity() === false) {
-            event.preventDefault();
-            event.stopPropagation();
-        }
 
         // Updated with Apollo/GRaphql syntax
         try {
             const { data } = await login({ variables: { ...formState } });
 
             console.log(data);
-            Auth.login(data.loginUser.token);
+            Auth.login(data.login.token);
         } catch (e) {
             console.error(e);
             setShowAlert(true);
@@ -51,6 +50,10 @@ function Login() {
             username: '',
             password: '',
         });
+
+
+
+
     };
 
     return (
@@ -85,7 +88,8 @@ function Login() {
                                 onChange={handleInputChange}
                             />
 
-                            <button className='btn btn-primary d-block w-100 m-1' type='submit'>
+                            <button
+                                className='btn btn-primary d-block w-100 m-1' type='submit' onClick={handleInputChange}>
                                 Submit
                             </button>
                         </div>

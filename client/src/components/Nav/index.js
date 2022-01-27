@@ -1,10 +1,15 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom'
-
+import Auth from '../../utils/auth';
 
 
 
 function Nav() {
+
+    const logout = event => {
+        event.preventDefault();
+        Auth.logout();
+    };
 
     return (
 
@@ -35,18 +40,29 @@ function Nav() {
 
                 <div className="col-md-0 text-end">
 
-                    <NavLink to="Login">
-                        <button type="button" className="btn btn-outline-light m-1">Login</button>
-                    </NavLink>
+                    {Auth.loggedIn() ? (
+                        <>
+                            <NavLink to="/profile"><button type="button" className="btn btn-outline-light m-1">Me</button></NavLink>
+                            <a href="/" onClick={logout}><button type="button" className="btn btn-warning m-1">Logout</button></a>
 
-                    <NavLink to="SignUp">
-                        <button type="button" className="btn btn-warning m-1">Sign-up</button>
-                    </NavLink>
+                        </>
 
+                    ) : (
+                        <>
+                            <NavLink to="Login">
+                                <button type="button" className="btn btn-outline-light m-1">Login</button>
+                            </NavLink>
+
+
+                            <NavLink to="SignUp">
+                                <button type="button" className="btn btn-warning m-1">Sign-up</button>
+                            </NavLink>
+                        </>
+                    )}
 
                 </div>
 
-            </div>
+            </div >
 
 
 

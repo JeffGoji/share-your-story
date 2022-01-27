@@ -42,7 +42,6 @@ export const QUERY_USER = gql`
       _id
       username
       email
-      region
       stories {
         _id
         storyText
@@ -59,7 +58,6 @@ export const QUERY_ME = gql`
       _id
       username
       email
-      region
       stories {
         _id
         storyText
@@ -82,7 +80,6 @@ export const QUERY_ME_BASIC = gql`
       _id
       username
       email
-      region
       
     }
   }
