@@ -6,7 +6,6 @@ type User {
     username: String
     email: String
     stories: [Story]
-    region: String
 }
 
 type Story {
@@ -41,7 +40,7 @@ type Query {
 
 type Mutation {
     login(username: String!, password: String!): Auth
-    addUser(username: String!, email: String!, password: String!, region: String): Auth
+    addUser(username: String!, email: String!, password: String!): Auth
     addStory(storyText: String!): Story
     addComment(storyId: ID!, commentBody: String!): Story
     updateStory(storyId: ID!, storyText: String!): Story

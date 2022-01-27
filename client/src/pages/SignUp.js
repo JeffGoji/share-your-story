@@ -38,7 +38,7 @@ const SignUp = () => {
             event.stopPropagation();
         }
 
-        // Updated with Apollo/GRaphql syntax
+        // Updated with Apollo/Graphql syntax
         try {
             const { data } = await addUser({ variables: { ...formState } });
 
