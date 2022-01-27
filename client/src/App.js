@@ -19,13 +19,20 @@ import Profile from './pages/Profile'
 import './index.css'
 
 //Import Apollo:
-import { ApolloProvider, ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client';
-import { setContext } from '@apollo/client/link/context';
+import {
+  ApolloClient,
+  InMemoryCache,
+  ApolloProvider,
+  createHttpLink,
+} from "@apollo/client";
+import { setContext } from "@apollo/client/link/context";
 
 // GraphQL endpoint:
 const httpLink = createHttpLink({
-  uri: '/graphql',
+  uri: "/graphql", 
 });
+
+
 const authLink = setContext((_, { headers }) => {
   const token = localStorage.getItem('id_token');
   return {

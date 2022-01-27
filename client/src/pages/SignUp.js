@@ -52,7 +52,7 @@ const SignUp = () => {
         setFormState({
             username: " ",
             email: " ",
-            password: " ",
+            password: "",
         });
     };
 
