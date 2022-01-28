@@ -14,11 +14,12 @@ const StoryForm = () => {
             try {
                 // update story array's cache
                 // could potentially not exist yet, so wrap in a try/catch
+                debugger
                 const { stories } = cache.readQuery({ query: QUERY_STORIES });
 
                 cache.writeQuery({
                     query: QUERY_STORIES,
-                    data: { stories: ['Hello! Im here!'] },
+                    data: { stories: [addStory, ...stories] },
 
                 });
                 console.log('I made it here X2!!');

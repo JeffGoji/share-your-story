@@ -54,31 +54,30 @@ import { Link } from 'react-router-dom';
 // }
 
 const StoriesList = ({ stories, title }) => {
-    if (!stories.length) {
+    if (!stories?.length) {
         return <h3>No Stories Yet</h3>;
     }
 
     return (
         <div>
-
             <h3>{title}</h3>
             {stories &&
                 stories.map(story => (
-                    <div key={story._id} classNameName="card mb-3">
-                        <p classNameName="card-header">
+                    <div key={story._id} className="card mb-3">
+                        <p className="card-header">
                             <Link
                                 to={`/profile/${story.username}`}
                                 style={{ fontWeight: 700 }}
-                                classNameName="text-light"
+                                className="text-light"
                             >
                                 {story.username}
                             </Link>{' '}
                             stories on {story.createdAt}
                         </p>
-                        <div classNameName="card-body">
+                        <div className="card-body">
                             <Link to={`/story/${story._id}`}>
                                 <p>{story.storyText}</p>
-                                <p classNameName="mb-0">
+                                <p className="mb-0">
                                     Comments: {story.commentCount} || Click to{' '}
                                     {story.commentCount ? 'see' : 'start'} the discussion!
                                 </p>

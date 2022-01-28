@@ -90,12 +90,6 @@ const Profile = () => {
                 </div>
 
             </main >
-
-            {/* <div className="col-auto d-none d-lg-block">
-                <StoryForm />
-
-
-            </div > */}
         </div>
 
     )

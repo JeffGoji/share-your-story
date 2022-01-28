@@ -1,8 +1,8 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 
-// import ReactionList from '../components/ReactionList';
-// import ReactionForm from '../components/ReactionForm';
+import CommentList from '../CommentList';
+import CommentForm from '../CommentForm';
 
 import Auth from '../utils/auth';
 import { useQuery } from '@apollo/client';
@@ -35,11 +35,11 @@ const SingleStory = (props) => {
                 </div>
             </div>
 
-            {/* {story.reactionCount > 0 && (
-                <ReactionList reactions={story.reactions} />
+            {story.commentCount > 0 && (
+                <CommentList reactions={story.comments} />
             )}
 
-            {Auth.loggedIn() && <ReactionForm StoryId={story._id} />} */}
+            {Auth.loggedIn() && <CommentForm StoryId={story._id} />}
         </div>
     );
 };
