@@ -62,7 +62,7 @@ const StoriesList = ({ stories, title }) => {
         <div>
             <h3>{title}</h3>
             {stories &&
-                stories.map(story => (
+                stories.map((story) => (
                     <div key={story._id} className="card mb-3">
                         <p className="card-header">
                             <Link
@@ -72,7 +72,7 @@ const StoriesList = ({ stories, title }) => {
                             >
                                 {story.username}
                             </Link>{' '}
-                            stories on {story.createdAt}
+                            {story.title} on {story.createdAt}
                         </p>
                         <div className="card-body">
                             <Link to={`/story/${story._id}`}>
