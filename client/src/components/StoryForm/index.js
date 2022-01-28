@@ -10,23 +10,28 @@ const StoryForm = () => {
 
     const [addStory, { error }] = useMutation(ADD_STORY, {
         update(cache, { data: { addStory } }) {
+            console.log('I made it here'); //<---
             try {
                 // update story array's cache
                 // could potentially not exist yet, so wrap in a try/catch
-                const { story } = cache.readQuery({ query: QUERY_STORIES });
+                const { stories } = cache.readQuery({ query: QUERY_STORIES });
+
                 cache.writeQuery({
                     query: QUERY_STORIES,
-                    data: { story: [addStory, ...story] },
+                    data: { stories: ['Hello! Im here!'] },
+
                 });
+                console.log('I made it here X2!!');
             } catch (e) {
                 console.error(e);
+
             }
 
             // update me object's cache
             const { me } = cache.readQuery({ query: QUERY_ME });
             cache.writeQuery({
                 query: QUERY_ME,
-                data: { me: { ...me, story: [...me.story, addStory] } },
+                data: { me: { ...me, stories: [...me.stories, addStory] } },
             });
         },
     });
@@ -72,7 +77,7 @@ const StoryForm = () => {
                     onSubmit={handleFormSubmit}
                 >
                     <textarea
-                        placeholder="Here's a new thought..."
+                        placeholder="Share your story..."
                         value={storyText}
                         className="form-input col-12 col-md-9"
                         onChange={handleChange}
@@ -83,8 +88,10 @@ const StoryForm = () => {
                         </button>
                     </div>
                 </form>
+
             </div>
         </div>
+
     );
 };
 

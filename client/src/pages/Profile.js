@@ -9,6 +9,7 @@ import { useQuery, useMutation } from '@apollo/client';
 import { QUERY_USER, QUERY_ME } from '../utils/queries';
 import Auth from '../utils/auth';
 import StoryForm from '../components/StoryForm';
+import StoryList from '../components/StoryList';
 
 
 const Profile = () => {
@@ -45,6 +46,11 @@ const Profile = () => {
                         <h1 className="display-4 fst-italic">This is the profile page for {user.username}</h1>
                         <p className="lead my-3">Below is a list of your stories.</p>
                         <p className="lead mb-0"><a href="#" className="text-white fw-bold">Continue reading...</a></p>
+                    </div>
+                    <div className="flex-row justify-space-between mb-3">
+                        <div className="col-12 mb-3 col-lg-8">
+                            <StoryList stories={user.stories} title={`${user.username}'s thoughts...`} />
+                        </div>
                     </div>
                 </div>
 
