@@ -13,7 +13,7 @@ import MainPage from './pages/index';
 import Login from './pages/Login'
 import SignUp from './pages/SignUp';
 import Resources from './components/Resources'
-import StoryList from './components/StoryList'
+import SingleStory from './pages/SingleStory'
 import Profile from './pages/Profile'
 
 //styling
@@ -60,7 +60,7 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<SignUp />} />
             <Route path="/resources" element={<Resources />} />
-            <Route path='/stories' element={<StoryList />} />
+            <Route path='/story/:id' element={<SingleStory />} />
             <Route path='/profile' element={<Profile />} />
 
           </Routes>
