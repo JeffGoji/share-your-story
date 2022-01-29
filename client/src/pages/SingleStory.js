@@ -31,7 +31,7 @@ const SingleStory = (props) => {
                     Story on {story.createdAt}
                 </p>
                 <div className="card-body">
-                    <p>{story.StoryText}</p>
+                    <p>{story.storyText}</p>
                 </div>
             </div>
 
