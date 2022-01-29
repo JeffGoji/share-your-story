@@ -10,7 +10,7 @@ const typeDefs = gql`
 
   type Story {
     _id: ID
-    storyText: String
+    storyText: String!
     createdAt: String
     username: String
     commentCount: Int

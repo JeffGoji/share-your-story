@@ -19,7 +19,7 @@ const StoryForm = () => {
 
                 cache.writeQuery({
                     query: QUERY_STORIES,
-                    data: { stories: [addStory, ...stories] },
+                    data: { stories: [addStory, stories] },
 
                 });
 

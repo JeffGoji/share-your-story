@@ -37,6 +37,7 @@ const Profile = () => {
             </h4>
         );
     }
+    console.log(user)
     return (
         <div>
             <main className="container-large box-bg rounded-3 card-shadow">
