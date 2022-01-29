@@ -1,8 +1,8 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 
-import CommentList from '../CommentList';
-import CommentForm from '../CommentForm';
+import CommentList from '../components/CommentList';
+import CommentForm from '../components/CommentForm';
 
 import Auth from '../utils/auth';
 import { useQuery } from '@apollo/client';
@@ -31,15 +31,15 @@ const SingleStory = (props) => {
                     Story on {story.createdAt}
                 </p>
                 <div className="card-body">
-                    <p>{story.StoryText}</p>
+                    <p>{story.storyText}</p>
                 </div>
             </div>
 
             {story.commentCount > 0 && (
-                <CommentList comments={story.comments} />
+                <CommentList comments={story.commentBody} />
             )}
 
-            {Auth.loggedIn() && <CommentForm StoryId={story._id} />}
+            {Auth.loggedIn() && <CommentForm storyId={story._id} />}
         </div>
     );
 };

@@ -15,6 +15,10 @@ import SignUp from './pages/SignUp';
 import Resources from './components/Resources'
 import SingleStory from './pages/SingleStory'
 import Profile from './pages/Profile'
+import StoriesList from './components/StoryList'
+//Comments:
+import CommentList from './components/CommentList'
+import CommentForm from './components/CommentForm'
 
 //styling
 import './index.css'
@@ -22,6 +26,7 @@ import './index.css'
 //Import Apollo:
 import { ApolloProvider, ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
+// import StoriesList from './components/StoryList';
 
 // GraphQL endpoint:
 const httpLink = createHttpLink({
@@ -56,12 +61,14 @@ function App() {
 
           <Routes>
             <Route path="/" element={<MainPage />} />
-            <Route path="/main" element={<MainPage />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<SignUp />} />
             <Route path="/resources" element={<Resources />} />
             <Route path='/story/:id' element={<SingleStory />} />
             <Route path='/profile' element={<Profile />} />
+            <Route path='/stories' element={<StoriesList />} />
+            <Route path="/comment/:id" element={<CommentForm />} />
+            <Route path='/comments' element={<CommentList />} />
 
           </Routes>
 

@@ -1,24 +1,24 @@
 import React from 'react';
 
-import { Navigate, useNavigate, useParams, } from 'react-router-dom';
+import { Navigate, useParams, } from 'react-router-dom';
 // import ThoughtList from '../components/ThoughtList';
 // import ThoughtForm from '../components/ThoughtForm';
 // import Newsfeed from './Newsfeed';
 
-import { useQuery, useMutation } from '@apollo/client';
+import { useQuery } from '@apollo/client';
 import { QUERY_USER, QUERY_ME } from '../utils/queries';
 import Auth from '../utils/auth';
 import StoryForm from '../components/StoryForm';
-import StoryList from '../components/StoryList';
+import StoriesList from '../components/StoryList';
 
 
 const Profile = () => {
-
     const { username: userParam } = useParams();
 
     const { loading, data } = useQuery(userParam ? QUERY_USER : QUERY_ME, {
         variables: { username: userParam }
     });
+
 
     const user = data?.me || data?.user || {};
     // redirect to personal profile page if username is the logged-in user's
@@ -37,7 +37,6 @@ const Profile = () => {
             </h4>
         );
     }
-
     return (
         <div>
             <main className="container-large box-bg rounded-3 card-shadow">
@@ -49,7 +48,7 @@ const Profile = () => {
                     </div>
                     <div className="flex-row justify-space-between mb-3">
                         <div className="col-12 mb-3 col-lg-8">
-                            <StoryList stories={user.stories} title={`${user.username}'s thoughts...`} />
+                            <StoriesList stories={user.stories} title={`${user.username}'s stories...`} />
                         </div>
                     </div>
                 </div>

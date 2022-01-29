@@ -1,9 +1,7 @@
 import React from "react";
 
 //Pages:
-import TxLaw from "../../pages/TxLaw";
 import Newsfeed from "../../pages/Newsfeed";
-import ArticleList from '../Articles'
 
 
 function MainPage() {
