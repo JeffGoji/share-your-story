@@ -36,7 +36,7 @@ const SingleStory = (props) => {
             </div>
 
             {story.commentCount > 0 && (
-                <CommentList comments={story.comments} />
+                <CommentList comments={story.commentBody} />
             )}
 
             {Auth.loggedIn() && <CommentForm storyId={story._id} />}
