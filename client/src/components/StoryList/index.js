@@ -57,7 +57,7 @@ const StoriesList = ({ stories, title }) => {
     if (!stories?.length) {
         return <h3>No Stories Yet</h3>;
     }
-
+console.log(stories)
     return (
         <div>
             <h3>{title}</h3>

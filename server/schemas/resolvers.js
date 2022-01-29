@@ -9,10 +9,11 @@ const resolvers = {
             if (context.user) {
 
                 const userData = await User.findOne({ _id: context.user._id })
-                    .select('-__v -password')
+                    .select('-__v')
                     .populate('stories')
+                    
 
-
+console.log(userData);
                 return userData;
             }
 
@@ -26,9 +27,11 @@ const resolvers = {
         },
 
         user: async (parent, { username }) => {
-            return User.findOne({ username })
-                .select('-__v -password')
-                .populate('stories')
+            const userdata=  User.findOne({ username:username })
+              .select("-__v -password")
+              .populate('stories');
+            console.log(userdata);
+            return userdata;
         },
 
         stories: async (parent, { username }) => {
