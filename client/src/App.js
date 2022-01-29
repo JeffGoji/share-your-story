@@ -61,7 +61,7 @@ function App() {
             <Route path="/signup" element={<SignUp />} />
             <Route path="/resources" element={<Resources />} />
             <Route path='/story/:id' element={<SingleStory />} />
-            <Route path='/profile' element={<Profile />} />
+            <Route path='/profile/:username?' element={<Profile />} />
 
           </Routes>
 
