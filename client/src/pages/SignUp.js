@@ -50,9 +50,9 @@ const SignUp = () => {
         }
 
         setFormState({
-            username: " ",
-            email: " ",
-            password: " ",
+            username: "",
+            email: "",
+            password: "",
         });
     };
 
