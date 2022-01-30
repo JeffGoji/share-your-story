@@ -10,6 +10,7 @@ const typeDefs = gql`
   type Story {
     _id: ID
     storyText: String!
+    storyTitle: String
     createdAt: String
     storyTitle: String
     username: String
@@ -37,9 +38,9 @@ const typeDefs = gql`
   type Mutation {
     login(username: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
-    addStory(storyText: String!): Story
+    addStory(storyTitle: String!, storyText: String!): Story
     addComment(storyId: ID!, commentBody: String!): Story
-    updateStory(storyId: ID!, storyText: String!): Story
+    updateStory(storyTitle: String!, storyId: ID!, storyText: String!): Story
     deleteStory(storyId: ID!): Story
     
   }
