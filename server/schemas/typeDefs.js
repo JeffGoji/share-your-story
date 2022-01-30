@@ -11,6 +11,7 @@ const typeDefs = gql`
     _id: ID
     storyText: String!
     createdAt: String
+    storyTitle: String
     username: String
     commentCount: Int
     comments: [Comment]
