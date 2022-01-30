@@ -21,5 +21,8 @@
   "bugs": {
     "url": "https://github.com/JeffGoji/share-your-story/issues"
   },
-  "homepage": "https://github.com/JeffGoji/share-your-story#readme"
+  "homepage": "https://github.com/JeffGoji/share-your-story#readme",
+  "dependencies": {
+    "dotenv": "^14.3.2"
+  }
 }
