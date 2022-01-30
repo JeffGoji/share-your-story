@@ -6,7 +6,7 @@ import { QUERY_STORIES, QUERY_ME, } from '../../utils/queries';
 
 const StoryForm = () => {
     const [storyText, setText] = useState('');
-    // const [storyTitle, setTitle] = useState('');
+    const [storyTitle, setTitle] = useState('');
     const [characterCount, setCharacterCount] = useState(0);
 
     const [addStory, { error }] = useMutation(ADD_STORY, {
@@ -48,11 +48,11 @@ const StoryForm = () => {
         }
     };
 
-    // const handleChange = (event) => {
-    //     const name = event.target.name;
-    //     const value = event.target.value;
-    //     storyText(values => ({ ...values, [name]: value }))
-    // }
+    //  const handleChangeTwo = (event) => {
+    //      const name = event.target.name;
+    //    const value = event.target.value;
+    //    storyTitle(values => ({ ...values, [name]: value }))
+    //  }
 
     // submit form
     const handleFormSubmit = async (event) => {
@@ -60,12 +60,12 @@ const StoryForm = () => {
 
         try {
             await addStory({
-                variables: { storyText },
+                variables: { storyText, storyTitle },
             });
 
             // clear form value
             setText('');
-            // setTitle('');
+            setTitle('');
             setCharacterCount(0);
         } catch (e) {
             console.error(e);
@@ -88,17 +88,16 @@ const StoryForm = () => {
 
 
                     <form onSubmit={handleFormSubmit}>
-                        {/* 
-                        Code for title box:
+                    
                         
                         <label className="form-label mt-1">Your Title</label>
                         <input
                             name="storyTitle"
                             type="text" className="form-control rounded-3 mb-3" placeholder="Your title"
-                            onChange={handleChangeTwo}
+                            onChange={handleChange}
                             value={storyTitle}
                             onSubmit={handleFormSubmit}
-                        /> */}
+                        /> 
 
 
                         <label className="form-label mt-1">Your Story</label>
