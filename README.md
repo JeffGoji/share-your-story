@@ -40,4 +40,4 @@ This app was created using javaScript, jsNode, express (and its various children
 * You can find more of our work at:
     ### [https://github.com/JeffGoji](https://github.com/JeffGoji)
     ### [https://github.com/Jsumme1](https://github.com/Jsumme1)
-    ### [https://github.com/Noah](https://github.com/Noah)
+    ### [https://github.com/NoahTidwell](https://github.com/NoahTidwell)
