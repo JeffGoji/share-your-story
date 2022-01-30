@@ -11,9 +11,8 @@ const resolvers = {
                 const userData = await User.findOne({ _id: context.user._id })
                     .select('-__v')
                     .populate('stories')
-                    
 
-console.log(userData);
+
                 return userData;
             }
 
@@ -27,9 +26,9 @@ console.log(userData);
         },
 
         user: async (parent, { username }) => {
-            const userdata=  User.findOne({ username:username })
-              .select("-__v -password")
-              .populate('stories');
+            const userdata = User.findOne({ username: username })
+                .select("-__v -password")
+                .populate('stories');
             console.log(userdata);
             return userdata;
         },

@@ -37,26 +37,30 @@ const Profile = () => {
             </h4>
         );
     }
-    console.log(user)
     return (
         <div>
             <main className="container-large box-bg rounded-3 card-shadow">
                 <div className="p-4 p-md-5 mb-4 text-white rounded bg-dark">
                     <div className="col-md-6 px-0">
-                        <h1 className="display-4 fst-italic">This is the profile page for {user.username}</h1>
-                        <p className="lead my-3">Below is a list of your stories.</p>
-                        <p className="lead mb-0"><a href="#" className="text-white fw-bold">Continue reading...</a></p>
-                    </div>
-                    <div className="flex-row justify-space-between mb-3">
-                        <div className="col-12 mb-3 col-lg-8">
-                            <StoriesList stories={user.stories} title={`${user.username}'s stories...`} />
-                        </div>
+                        <h1 className="display-4 fst-italic">{user.username}'s User Hub</h1>
+                        <p>You may read, edit, or delete your stories below, or you can write a new story.</p>
+                        {/* <p className="lead my-3">Below is a list of your stories.</p> */}
                     </div>
                 </div>
+                {/* <div className="flex-row justify-space-between mb-3 text-center">
+                    <div className="row">
+                        <h2>{user.username}'s stories</h2>
+                    </div>
+                </div> */}
+                <div className="d-flex justify-content-center box-margin">
 
+                    <StoriesList stories={user.stories} />
+                </div>
+                {/* Kept the original for styling ideas:
+                <StoriesList stories={user.stories} title={`${user.username}'s stories...`} /> */}
                 <StoryForm />
 
-                <div className="row mb-2">
+                {/* <div className="row mb-2">
                     <div className="col-md-6">
                         <div className="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
                             <div className="col p-4 d-flex flex-column position-static">
@@ -87,7 +91,7 @@ const Profile = () => {
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> */}
 
             </main >
         </div>
