@@ -26,7 +26,7 @@ const userSchema = new Schema(
       type: String,
       minlength: 5,
     },
-        stories: [
+    stories: [
       {
         type: Schema.Types.ObjectId,
         ref: "Story",

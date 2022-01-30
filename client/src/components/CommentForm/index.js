@@ -54,6 +54,7 @@ const CommentForm = ({ storyId }) => {
                     className="form-input col-12 col-md-9 rounded-2"
                     onChange={handleChange}
                 ></textarea>
+                <br />
 
                 <button className="btn btn-primary col-12 col-md-3" type="submit">
 

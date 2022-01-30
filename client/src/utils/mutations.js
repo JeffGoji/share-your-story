@@ -71,7 +71,6 @@ export const ADD_STORY = gql`
   mutation addStory($storyText: String!) {
     addStory(storyText: $storyText) {
       _id
-      storyText
       createdAt
       username
       commentCount

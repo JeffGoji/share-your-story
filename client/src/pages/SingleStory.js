@@ -22,7 +22,7 @@ const SingleStory = (props) => {
     }
 
     return (
-        <div>
+        <div className="box-margin">
             <div className="card mb-3">
                 <p className="card-header">
                     <span style={{ fontWeight: 700 }} className="text-light">
@@ -36,11 +36,12 @@ const SingleStory = (props) => {
             </div>
 
             {story.commentCount > 0 && (
-                <CommentList comments={story.commentBody} />
+                <CommentList comments={story.comments} />
             )}
 
             {Auth.loggedIn() && <CommentForm storyId={story._id} />}
         </div>
+
     );
 };
 
