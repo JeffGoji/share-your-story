@@ -41,7 +41,14 @@ const StoryForm = () => {
     });
 
     // update state based on form input changes
-    const handleChange = (event) => {
+    const titleHandleChange = (event) => {
+        if (event.target.value.length <= 1000) {
+            setTitle(event.target.value);
+            setCharacterCount(event.target.value.length);
+        }
+    };
+
+    const textHandleChange = (event) => {
         if (event.target.value.length <= 1000) {
             setText(event.target.value);
             setCharacterCount(event.target.value.length);
@@ -94,7 +101,7 @@ const StoryForm = () => {
                         <input
                             name="storyTitle"
                             type="text" className="form-control rounded-3 mb-3" placeholder="Your title"
-                            onChange={handleChange}
+                            onChange={titleHandleChange}
                             value={storyTitle}
                             onSubmit={handleFormSubmit}
                         /> 
@@ -107,7 +114,7 @@ const StoryForm = () => {
                             value={storyText}
                             className="form-control col-12 col-md-9 rounded-3 justify-content-center"
                             rows="12"
-                            onChange={handleChange}
+                            onChange={textHandleChange}
                         />
 
 
