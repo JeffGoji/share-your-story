@@ -110,6 +110,7 @@ export const DELETE_STORY = gql`
 mutation deleteStory($storyId: ID!) {
   deleteStory(storyId: $storyId) {
     storyText
+    storyTitle
     username
    
   }
