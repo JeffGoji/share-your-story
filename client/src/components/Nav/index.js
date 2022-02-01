@@ -22,7 +22,7 @@ function Nav() {
             <div className="collapse navbar-collapse" id="navbarText">
                 <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                     <li className="nav-item fs-5">
-                        <NavLink className="nav-link" aria-current="page" to="main">Home</NavLink>
+                        <NavLink className="nav-link" to="home">Home</NavLink>
                     </li>
                     {/* <li className="nav-item fs-5">
                         <NavLink className="nav-link" to="allstories">Stories</NavLink>

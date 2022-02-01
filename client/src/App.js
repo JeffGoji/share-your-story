@@ -15,10 +15,12 @@ import SignUp from './pages/SignUp';
 import Resources from './components/Resources'
 import SingleStory from './pages/SingleStory'
 import Profile from './pages/Profile'
+import Home from "./pages/Home";
 import StoriesList from './components/StoryList'
 import AllStories from './pages/AllStories'
 import CommentList from './components/CommentList'
 import CommentForm from './components/CommentForm'
+
 
 //styling
 import './index.css'
@@ -60,7 +62,7 @@ function App() {
 
           <Routes>
             <Route path="/" element={<MainPage />} />
-            <Route path="/main" element={<MainPage />} />
+            <Route path="/home" element={<Home />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<SignUp />} />
             <Route path="/resources" element={<Resources />} />
@@ -70,6 +72,7 @@ function App() {
             <Route path='/allstories' element={<AllStories />} />
             <Route path="/comment/:id" element={<CommentForm />} />
             <Route path='/comments' element={<CommentList />} />
+
 
           </Routes>
 
