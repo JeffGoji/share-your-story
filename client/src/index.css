@@ -17,7 +17,7 @@ body {
 Nav {
   font-family: "Oleo Script", cursive;
 
-  text-shadow: 2px, 2px, 5px rgba(46, 49, 255, 0.89);
+  text-shadow: 2px, 2px, 5px rgba(22, 26, 255, 0.1);
 }
 
 h1,
@@ -27,7 +27,7 @@ h3 {
 }
 
 .shadow-text {
-  text-shadow: 2px, 2px, 5px rgba(rgb(255, 0, 0));
+  text-shadow: 2px, 2px, 5px rgba(rgb(0, 0, 0));
 }
 
 .box-bg {
