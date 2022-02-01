@@ -55,12 +55,6 @@ const StoryForm = () => {
         }
     };
 
-    //  const handleChangeTwo = (event) => {
-    //      const name = event.target.name;
-    //    const value = event.target.value;
-    //    storyTitle(values => ({ ...values, [name]: value }))
-    //  }
-
     // submit form
     const handleFormSubmit = async (event) => {
         event.preventDefault();
@@ -80,9 +74,9 @@ const StoryForm = () => {
     };
 
     return (
-        <div className="d-flex justify-content-center box-margin">
+        <div className="box-margin">
+            <div className="container-fluid">
 
-            <div className="col-sm-12 col-md-12 col-lg-10 col-xl-10 box-bg p-2 rounded-3">
                 <h1 className='text-center'>Share your story</h1>
                 <label
                     className={`m-0 ${characterCount === 1000 || error ? 'text-error, 1000 characters or less' : ''}`}
@@ -92,11 +86,9 @@ const StoryForm = () => {
                 </label>
                 <div>
 
-
-
                     <form onSubmit={handleFormSubmit}>
-                    
-                        
+
+
                         <label className="form-label mt-1">Your Title</label>
                         <input
                             name="storyTitle"
@@ -104,7 +96,7 @@ const StoryForm = () => {
                             onChange={titleHandleChange}
                             value={storyTitle}
                             onSubmit={handleFormSubmit}
-                        /> 
+                        />
 
 
                         <label className="form-label mt-1">Your Story</label>

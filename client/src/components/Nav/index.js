@@ -24,12 +24,12 @@ function Nav() {
                     <li className="nav-item fs-5">
                         <NavLink className="nav-link" aria-current="page" to="main">Home</NavLink>
                     </li>
-                    <li className="nav-item fs-5">
-                        <NavLink className="nav-link" to="stories">Stories</NavLink>
-                    </li>
                     {/* <li className="nav-item fs-5">
-                        <NavLink className="nav-link" to="#">News</NavLink>
+                        <NavLink className="nav-link" to="allstories">Stories</NavLink>
                     </li> */}
+                    <li className="nav-item fs-5">
+                        <NavLink className="nav-link" to="#">News</NavLink>
+                    </li>
                     <li className="nav-item fs-5">
                         <NavLink className="nav-link" to="profile">Dashboard</NavLink>
                     </li>

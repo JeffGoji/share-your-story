@@ -6,16 +6,17 @@ import { Navigate, useParams, } from 'react-router-dom';
 // import Newsfeed from './Newsfeed';
 
 import { useQuery } from '@apollo/client';
-import { QUERY_USER, QUERY_ME } from '../utils/queries';
+import { QUERY_USER, QUERY_ME, QUERY_STORIES } from '../utils/queries';
 import Auth from '../utils/auth';
 import StoryForm from '../components/StoryForm';
 import StoriesList from '../components/StoryList';
+// import AllStories from './AllStories';
 
 
 const Profile = () => {
     const { username: userParam } = useParams();
 
-    const { loading, data } = useQuery(userParam ? QUERY_USER : QUERY_ME, {
+    const { loading, data } = useQuery(userParam ? QUERY_USER : QUERY_ME, QUERY_STORIES, {
         variables: { username: userParam }
     });
 
@@ -43,7 +44,12 @@ const Profile = () => {
                 <div className="p-4 p-md-5 mb-4 text-white rounded bg-dark">
                     <div className="col-md-6 px-0">
                         <h1 className="display-4 fst-italic">{user.username}'s User Hub</h1>
-                        <p>You may read, edit, or delete your stories below, or you can write a new story.</p>
+                        <p>You may read, edit, or delete your stories below, or you can write a new story.
+                            <br />
+                            If you’re filing a lawsuit, please be careful with the information you share online.
+                            <br />
+                            Talk to your attorney before you decide to share confidential information online – you don’t want the opposing party to use something you shared online against you.
+                        </p>
                         {/* <p className="lead my-3">Below is a list of your stories.</p> */}
                     </div>
                 </div>
@@ -52,13 +58,15 @@ const Profile = () => {
                         <h2>{user.username}'s stories</h2>
                     </div>
                 </div> */}
-                <div className="d-flex justify-content-center box-margin">
+                {/* <div className="d-flex justify-content-center box-margin"> */}
 
-                    <StoriesList stories={user.stories} />
-                </div>
+                <StoriesList stories={user.stories} />
+
+                {/* </div> */}
                 {/* Kept the original for styling ideas:
                 <StoriesList stories={user.stories} title={`${user.username}'s stories...`} /> */}
                 <StoryForm />
+                {/* <AllStories /> */}
 
                 {/* <div className="row mb-2">
                     <div className="col-md-6">
@@ -91,7 +99,8 @@ const Profile = () => {
                             </div>
                         </div>
                     </div>
-                </div> */}
+            </div> */}
+
 
             </main >
         </div>

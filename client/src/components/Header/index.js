@@ -17,10 +17,10 @@ function Header() {
             top: '0',
 
         }} >
-
+            {/* 
             <div className="row">
                 <Nav />
-            </div >
+            </div > */}
 
         </header >
 

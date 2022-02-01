@@ -19,28 +19,6 @@ query stories($username: String!) {
   }
 `;
 
-// export const QUERY_STORIES = gql`
-//   {
-//     me {
-//       _id
-//       username
-//       email
-//       stories {
-//         _id
-//         storyText
-//         createdAt
-//         commentCount
-//         comments {
-//           _id
-//           createdAt
-//           commentBody
-//           username
-//         }
-//       }     
-//     }
-//   }
-// `;
-
 export const QUERY_STORY = gql`
   query story($id: ID!) {
     story(_id: $id) {
