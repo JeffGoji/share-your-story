@@ -20,10 +20,17 @@ const AllStories = () => {
             {loading ? (
                 <div>Loading...</div>
             ) : (
-                <StoriesList
-                    stories={stories}
-                    title="Some Feed for Thought(s)..."
-                />
+                <div>
+                    <div className="px-5 pt-2 my-2 text-center border-bottom card-header">
+                        <h3 className="display-6 fw-bold">User Stories</h3>
+                    </div>
+
+                    <StoriesList
+                        stories={stories}
+                        title="Some Feed for Thought(s)..."
+                    />
+
+                </div>
             )}
 
 
