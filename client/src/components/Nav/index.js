@@ -1,10 +1,11 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom'
 import Auth from '../../utils/auth';
-
+import '../../index.css'
 
 
 function Nav() {
+    const loggedIn = Auth.loggedIn();
 
     const logout = event => {
         event.preventDefault();
@@ -15,25 +16,26 @@ function Nav() {
 
         <nav className="navbar navbar-expand-lg navbar-dark mb-2 bg1" style={{ height: 'auto' }}>
 
-            <h2 className="p-2 text-white shadow-text">Share Your Story</h2>
+            <h2 className="p-2 text-white shadow-text fs-1">Share Your Story</h2>
             <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon"></span>
             </button>
-            <div className="collapse navbar-collapse" id="navbarText">
+            <div className="collapse navbar-collapse fs-1" id="navbarText">
                 <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                     <li className="nav-item fs-5">
-                        <NavLink className="nav-link" to="home">Home</NavLink>
+                        <NavLink className="nav-link" to="/">Home</NavLink>
                     </li>
-                    {/* <li className="nav-item fs-5">
+                    <li className="nav-item fs-5">
                         <NavLink className="nav-link" to="allstories">Stories</NavLink>
-                    </li> */}
+                    </li>
                     <li className="nav-item fs-5">
                         <NavLink className="nav-link" to="#">News</NavLink>
                     </li>
-                    <li className="nav-item fs-5">
-                        <NavLink className="nav-link" to="profile">Dashboard</NavLink>
-                    </li>
-                    <li className="nav-item fs-5">
+                    {loggedIn && (
+                        <li className="nav-item fs-5">
+                            <NavLink className="nav-link" to="profile">Dashboard</NavLink>
+                        </li>)}
+                    <li li className="nav-item fs-5">
                         <NavLink className="nav-link" to="resources">Resources</NavLink>
                     </li>
                 </ul>

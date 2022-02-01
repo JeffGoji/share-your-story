@@ -2,7 +2,7 @@ import React from "react";
 import StoriesList from "../components/StoryList";
 
 import { useQuery } from "@apollo/client";
-import { QUERY_STORIES} from "../utils/queries";
+import { QUERY_STORIES } from "../utils/queries";
 
 const Home = () => {
   const { loading, data } = useQuery(QUERY_STORIES);
@@ -11,9 +11,8 @@ const Home = () => {
 
   return (
     <main>
-      <div className="flex-row justify-space-between">
-       
-        <div className={"col-12 mb-3 "}>
+      <div className="row">
+        <div className="col-10 mb-3 ">
           {loading ? (
             <div>Loading...</div>
           ) : (
@@ -23,7 +22,7 @@ const Home = () => {
             />
           )}
         </div>
-        
+
       </div>
     </main>
   );

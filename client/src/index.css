@@ -14,12 +14,24 @@ body {
   font-size: 1.2rem;
 }
 
+Nav {
+  font-family: "Oleo Script", cursive;
+
+  text-shadow: 2px, 2px, 5px rgba(46, 49, 255, 0.89);
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Rammetto One", cursive;
+}
+
 .shadow-text {
   text-shadow: 2px, 2px, 5px rgba(rgb(255, 0, 0));
 }
 
 .box-bg {
-  background-color: rgba(255, 255, 255, 0.89);
+  background-color: rgba(255, 255, 255, 0.75);
 }
 
 .box-bg-dark {

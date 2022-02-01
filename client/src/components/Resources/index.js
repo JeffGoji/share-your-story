@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 //Pages:
-import Newsfeed from "../../pages/Newsfeed";
+import NewsData from "../../pages/NewsData";
 import rlinks from "./resourcedata";
 import Card from "./Cards";
 
@@ -35,7 +35,7 @@ function MainPage(props) {
 
       <div className="col-sm-12 col-md-12 col-lg-6 col-xl-5 mt-4">
         <h3 className="text-center">News Feed</h3>
-        <Newsfeed />
+        <NewsData />
 
       </div>
     </div>
