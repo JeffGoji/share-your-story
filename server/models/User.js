@@ -26,7 +26,12 @@ const userSchema = new Schema(
       type: String,
       minlength: 5,
     },
-    stories: [storySchema.schema],
+    stories: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "Story",
+      },
+    ],
   },
   {
     toJSON: {

@@ -16,6 +16,11 @@ import Resources from './components/Resources'
 import SingleStory from './pages/SingleStory'
 import Profile from './pages/Profile'
 import Home from "./pages/Home";
+import StoriesList from './components/StoryList'
+import AllStories from './pages/AllStories'
+import CommentList from './components/CommentList'
+import CommentForm from './components/CommentForm'
+
 
 //styling
 import './index.css'
@@ -63,6 +68,11 @@ function App() {
             <Route path="/resources" element={<Resources />} />
             <Route path='/story/:id' element={<SingleStory />} />
             <Route path='/profile' element={<Profile />} />
+            <Route path='/stories' element={<StoriesList />} />
+            <Route path='/allstories' element={<AllStories />} />
+            <Route path="/comment/:id" element={<CommentForm />} />
+            <Route path='/comments' element={<CommentList />} />
+
 
           </Routes>
 

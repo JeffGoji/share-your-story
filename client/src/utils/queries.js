@@ -5,6 +5,7 @@ query stories($username: String) {
     stories(username: $username) {
       _id
       storyText
+      storyTitle
       createdAt
       username
       commentCount
@@ -18,33 +19,12 @@ query stories($username: String) {
   }
 `;
 
-// export const QUERY_STORIES = gql`
-//   {
-//     me {
-//       _id
-//       username
-//       email
-//       stories {
-//         _id
-//         storyText
-//         createdAt
-//         commentCount
-//         comments {
-//           _id
-//           createdAt
-//           commentBody
-//           username
-//         }
-//       }     
-//     }
-//   }
-// `;
-
 export const QUERY_STORY = gql`
   query story($id: ID!) {
     story(_id: $id) {
       _id
       storyText
+      storyTitle
       createdAt
       username
       commentCount
@@ -67,6 +47,7 @@ export const QUERY_USER = gql`
       stories {
         _id
         storyText
+        storyTitle
         createdAt
         commentCount
       }
@@ -83,6 +64,7 @@ export const QUERY_ME = gql`
       stories {
         _id
         storyText
+        storyTitle
         createdAt
         commentCount
         comments {

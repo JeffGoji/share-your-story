@@ -1,24 +1,25 @@
 import React from 'react';
 
-import { Navigate, useNavigate, useParams, } from 'react-router-dom';
+import { Navigate, useParams, } from 'react-router-dom';
 // import ThoughtList from '../components/ThoughtList';
 // import ThoughtForm from '../components/ThoughtForm';
 // import Newsfeed from './Newsfeed';
 
-import { useQuery, useMutation } from '@apollo/client';
-import { QUERY_USER, QUERY_ME } from '../utils/queries';
+import { useQuery } from '@apollo/client';
+import { QUERY_USER, QUERY_ME, QUERY_STORIES } from '../utils/queries';
 import Auth from '../utils/auth';
 import StoryForm from '../components/StoryForm';
-import StoryList from '../components/StoryList';
+import StoriesList from '../components/StoryList';
+// import AllStories from './AllStories';
 
 
 const Profile = () => {
-
     const { username: userParam } = useParams();
 
-    const { loading, data } = useQuery(userParam ? QUERY_USER : QUERY_ME, {
+    const { loading, data } = useQuery(userParam ? QUERY_USER : QUERY_ME, QUERY_STORIES, {
         variables: { username: userParam }
     });
+
 
     const user = data?.me || data?.user || {};
     // redirect to personal profile page if username is the logged-in user's
@@ -37,26 +38,37 @@ const Profile = () => {
             </h4>
         );
     }
-
     return (
         <div>
             <main className="container-large box-bg rounded-3 card-shadow">
                 <div className="p-4 p-md-5 mb-4 text-white rounded bg-dark">
                     <div className="col-md-6 px-0">
-                        <h1 className="display-4 fst-italic">This is the profile page for {user.username}</h1>
-                        <p className="lead my-3">Below is a list of your stories.</p>
-                        <p className="lead mb-0"><a href="#" className="text-white fw-bold">Continue reading...</a></p>
-                    </div>
-                    <div className="flex-row justify-space-between mb-3">
-                        <div className="col-12 mb-3 col-lg-8">
-                            <StoryList stories={user.stories} title={`${user.username}'s thoughts...`} />
-                        </div>
+                        <h1 className="display-4 fst-italic">{user.username}'s User Hub</h1>
+                        <p>You may read, edit, or delete your stories below, or you can write a new story.
+                            <br />
+                            If you’re filing a lawsuit, please be careful with the information you share online.
+                            <br />
+                            Talk to your attorney before you decide to share confidential information online – you don’t want the opposing party to use something you shared online against you.
+                        </p>
+                        {/* <p className="lead my-3">Below is a list of your stories.</p> */}
                     </div>
                 </div>
+                {/* <div className="flex-row justify-space-between mb-3 text-center">
+                    <div className="row">
+                        <h2>{user.username}'s stories</h2>
+                    </div>
+                </div> */}
+                {/* <div className="d-flex justify-content-center box-margin"> */}
 
+                <StoriesList stories={user.stories} />
+
+                {/* </div> */}
+                {/* Kept the original for styling ideas:
+                <StoriesList stories={user.stories} title={`${user.username}'s stories...`} /> */}
                 <StoryForm />
+                {/* <AllStories /> */}
 
-                <div className="row mb-2">
+                {/* <div className="row mb-2">
                     <div className="col-md-6">
                         <div className="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
                             <div className="col p-4 d-flex flex-column position-static">
@@ -87,7 +99,8 @@ const Profile = () => {
                             </div>
                         </div>
                     </div>
-                </div>
+            </div> */}
+
 
             </main >
         </div>

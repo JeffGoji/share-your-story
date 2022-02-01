@@ -5,8 +5,6 @@ import Card from "../ArticleCard"
 
 function Articles(props) {
     const [ArticleList] = useState(articles);
-
-
     return (
         <div >
             <section id="articles" className="container-lg mt-2">

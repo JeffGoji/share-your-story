@@ -68,10 +68,9 @@ export const ADD_USER = gql`
 // `;
 
 export const ADD_STORY = gql`
-  mutation addStory($storyText: String!) {
-    addStory(storyText: $storyText) {
+  mutation addStory($storyTitle: String!, $storyText: String!) {
+    addStory(storyTitle: $storyTitle, storyText: $storyText) {
       _id
-      storyText
       createdAt
       username
       commentCount
@@ -98,9 +97,10 @@ export const ADD_COMMENT = gql`
 `;
 
 export const UPDATE_STORY = gql`
-mutation updateStory($storyId: ID!, $storyText: String!) {
-  updateStory(storyId: $storyId, storyText: $storyText) {
+mutation updateStory($storyTitle: String!, $storyId: ID!, $storyText: String!) {
+  updateStory(storyTitle: $storyTitle, storyId: $storyId, storyText: $storyText) {
     storyText
+    storyTitle
    
   }
 }
@@ -110,6 +110,7 @@ export const DELETE_STORY = gql`
 mutation deleteStory($storyId: ID!) {
   deleteStory(storyId: $storyId) {
     storyText
+    storyTitle
     username
    
   }
