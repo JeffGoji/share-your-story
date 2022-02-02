@@ -1,14 +1,37 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Auth from '../../utils/auth';
+import { DELETE_STORY } from '../../utils/mutations';
+import { useMutation } from '@apollo/client';
 
 
 const StoriesList = ({ stories }) => {
     const loggedIn = Auth.loggedIn();
+    
+    const [deleteStory] = useMutation(DELETE_STORY)
+
+  // create function that accepts the book's mongo _id value as param and deletes the book from the database
+  const handleDeleteStory = async (storyId) => {
+    const token = Auth.loggedIn() ? Auth.getToken() : null;
+    if (!token) {
+      return false;
+    }
+    console.log(storyId);
+    try {
+      const { data } = await deleteStory({
+        variables: { storyId },
+      });
+      // upon success, remove book's id from localStorage
+      deleteStory(storyId);
+    } catch (err) {
+      console.error(err);
+    }
 
     if (!stories?.length) {
         return <h3 className="text-center text-white bg-dark rounded">No Stories Yet</h3>;
     }
+   
+  };
 
     return (
 
@@ -40,7 +63,7 @@ const StoriesList = ({ stories }) => {
                                             <form>
                                                 {loggedIn && (
                                                     <>
-                                                        <button type="button" className="btn btn-danger btn-sm px-4 mt-2 m-1"
+                                                        <button onClick={() => handleDeleteStory(story._id)} type="button" className="btn btn-danger btn-sm px-4 mt-2 m-1"
 
                                                         >Delete Story</button>
 
