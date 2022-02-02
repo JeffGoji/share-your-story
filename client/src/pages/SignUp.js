@@ -41,7 +41,7 @@ const SignUp = () => {
         // Updated with Apollo/Graphql syntax
         try {
             const { data } = await addUser({ variables: { ...formState } });
-
+    
             console.log(data);
             Auth.login(data.addUser.token);
         } catch (e) {
