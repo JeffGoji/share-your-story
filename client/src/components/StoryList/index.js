@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Auth from '../../utils/auth';
-import { DELETE_STORY } from '../../utils/mutations';
+import { DELETE_STORY, UPDATE_STORY } from '../../utils/mutations';
 import { useMutation } from '@apollo/client';
 
 
@@ -21,11 +21,14 @@ const StoriesList = ({ stories }) => {
       const { data } = await deleteStory({
         variables: { storyId },
       });
-      // upon success, remove book's id from localStorage
+      
       deleteStory(storyId);
     } catch (err) {
       console.error(err);
     }
+
+    
+    
 
     if (!stories?.length) {
         return <h3 className="text-center text-white bg-dark rounded">No Stories Yet</h3>;
