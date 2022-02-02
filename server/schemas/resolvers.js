@@ -117,8 +117,10 @@ const resolvers = {
         deleteStory: async (parent, { storyId }, context) => {
             if (context.user) {
                 const removeStory = await Story.findOneAndDelete(
-                    { _id: storyId },
+                    { _id: context.user._id },
+                    { $pull: { stories: { storyId } } },
                     { new: true, runValidators: true }
+                    
                 );
 
                 return removeStory;
