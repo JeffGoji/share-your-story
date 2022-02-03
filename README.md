@@ -22,11 +22,15 @@ GitHub Repository : https://github.com/JeffGoji/share-your-story
 
 ## Usage
 
+Medical errors account for as many as 251,000 deaths per year as well as permanent injuries to the survivors of medical malpractice Unfortunately the survivors are often not given a chance to speak about there experiences or are completely disregarded by society at large witha fair share of victim blaming occurring, or it is swept under the rug of the medical industry.
+As a person who has already gone through this and having heard from others who have suffered life-long injuries from medical malpractice I can tell you it is a very serious and very overlooked problem in this country.
+We aim to change that by giving the victims an outlet for them to give a documented account as to what happened as well as support them in the recovery process and give them a chance at justice and making their voices heard.
+
 ## Images
 
-![Home Page](https://github.com/JeffGoji/share-your-story/tree/main/images/homepage.png)
-![Dashboard](https://github.com/JeffGoji/share-your-story/tree/main/images/dashboard.png)
-![Single Story](https://github.com/JeffGoji/share-your-story/tree/main/images/singlestory.png)
+![Home Page](images/homepage.png)
+![Dashboard](images/dashboard.png)
+![Single Story](images/singlestory.png)
 
 ## Contributions
 
