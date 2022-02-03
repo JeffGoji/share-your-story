@@ -13,7 +13,7 @@ function MainPage(props) {
   return (
 
     <div className="row justify-content-center box-margin rounded-3 card-shadow box-bg">
-      {/* <div className="container-fluid"> */}
+
       <div className="card-header text-center">
         <h2>Resources</h2>
         <p className="text-center p-2 fs-4">On this page you will find links to resources for help and recovery as well as news articles covering medical malpractice.</p>

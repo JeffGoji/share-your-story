@@ -41,7 +41,7 @@ const SignUp = () => {
         // Updated with Apollo/Graphql syntax
         try {
             const { data } = await addUser({ variables: { ...formState } });
-    
+
             console.log(data);
             Auth.login(data.addUser.token);
         } catch (e) {
@@ -58,7 +58,7 @@ const SignUp = () => {
 
 
     return (
-        <div className='d-flex justify-content-center'>
+        <div className='d-flex justify-content-center box-margin'>
             <div className='col-sm-12 col-md-12 col-lg-6 col-xl-6'>
                 <div className="card text-center card-shadow">
                     <div className="card-header">

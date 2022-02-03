@@ -115,19 +115,47 @@ const resolvers = {
         },
 
         deleteStory: async (parent, { storyId }, context) => {
+            console.log(context.user)
             if (context.user) {
-                const removeStory = await Story.findOneAndDelete(
-                    { _id: context.user._id },
-                    { $pull: { stories: { storyId } } },
-                    { new: true, runValidators: true }
-                    
-                );
+                console.log(context.user._id)
 
-                return removeStory;
+                Story.findOneAndRemove(
+                    { _id: storyId },
+                    { new: true }
+
+                )
+                    .then(res => {
+                        return User.findOneAndUpdate(
+                            { stories: storyId },
+                            { $pull: { stories: storyId } },
+                            { new: true }
+                        )
+                    })
+                    .then(data => {
+                        return data
+                    })
+
+
+            } else {
+                throw new AuthenticationError("You need to be logged in!");
             }
 
-            throw new AuthenticationError('You need to be logged in!');
         }
+
+        // deleteStory: async (parent, { storyId }, context) => {
+        //     if (context.user) {
+        //         const removeStory = await Story.findOneAndDelete(
+        //             { _id: context.user._id },
+        //             { $pull: { stories: { storyId } } },
+        //             { new: true, runValidators: true }
+
+        //         );
+
+        //         return removeStory;
+        //     }
+
+        //     throw new AuthenticationError('You need to be logged in!');
+        // }
     }
 };
 

@@ -1,6 +1,7 @@
 import nofmm from '../../assets/images/nofmm.png';
 import nmmaa from '../../assets/images/nmmaa.png';
 import nshl from '../../assets/images/nshl.png';
+import amputeeco from '../../assets/images/amputeeco.png'
 //Data to place inside the cards:
 export default [
 
@@ -25,14 +26,14 @@ export default [
         name: "The National Suicide Prevention Lifeline",
         description: "The National Suicide Prevention Lifeline provides free and confidential emotional support to people in suicidal crisis or emotional distress 24 hours a day, 7 days a week, across the United States. The Lifeline is comprised of a national network of over 180 local crisis centers, combining custom local care and resources with national standards and best practices.",
         link: ""
-    }
-    // {
-    //     id: ,
-    //     image: "",
-    //     name: "",
-    //     description: "",
-    //     link: ""
-    // },
+    },
+    {
+        id: 4,
+        image: amputeeco,
+        name: "Amputee Coalition",
+        description: "To reach out to and empower people affected by limb loss to achieve their full potential through education, support and advocacy, and to promote limb loss prevention. The Amputee Coalition works to raise awareness about and increase practices to prevent limb loss. The Amputee Coalition works to ensure that no amputee feels alone through pre- and post amputation and recovery. The Amputee Coalition works to help amputees and their family live life to the fullest after amputation.",
+        link: "https://www.amputee-coalition.org/"
+    },
     // {
     //     id: ,
     //     image: "",

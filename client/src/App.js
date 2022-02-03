@@ -33,8 +33,10 @@ import { setContext } from '@apollo/client/link/context';
 const httpLink = createHttpLink({
   //production:
   uri: 'https://share-your-story-texas.herokuapp.com/graphql'
+
   //development:
   // uri: 'http://localhost:3001/graphql',
+
 });
 const authLink = setContext((_, { headers }) => {
   const token = localStorage.getItem('id_token');
