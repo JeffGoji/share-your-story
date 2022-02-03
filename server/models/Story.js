@@ -4,18 +4,18 @@ const dateFormat = require("../utils/dateFormat");
 
 const storySchema = new Schema(
   {
-     storyTitle: {
-       type: String,
-       required: "Please enter a title",
-       minlength: 1,
-       maxlength: 80
+    storyTitle: {
+      type: String,
+      required: "Please enter a title",
+      minlength: 1,
+      maxlength: 80
 
-     },
+    },
     storyText: {
       type: String,
       required: "Please leave a story",
       minlength: 1,
-      maxlength: 500,
+      maxlength: 1000,
     },
 
     createdAt: {
