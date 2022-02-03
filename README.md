@@ -24,9 +24,9 @@ GitHub Repository : https://github.com/JeffGoji/share-your-story
 
 ## Images
 
-![Home Page]
-![Dashboard]
-![Single Story]
+![Home Page](https://github.com/JeffGoji/share-your-story/tree/main/images/homepage.png)
+![Dashboard](https://github.com/JeffGoji/share-your-story/tree/main/images/dashboard.png)
+![Single Story](https://github.com/JeffGoji/share-your-story/tree/main/images/singlestory.png)
 
 ## Contributions
 
