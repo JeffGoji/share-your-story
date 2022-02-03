@@ -12,7 +12,7 @@ function MainPage() {
                 <h1 className="text-center card-header">Who we are</h1>
                 <p className="text-black text-center p-3">Hi and welcome to Share Your Story!
                     <br />
-                    We are a Texas based orginization and our mission is to educate and help victims of medical malpractice find the resources and information that they deserve need after suffering an injury at the hands of the medical industry and for those afflicted to have a space onine where they can share their stories in a supportive environment.
+                    We are a Texas based orginization and our mission is to educate and help victims of medical malpractice find the resources and information that they deserve and need after suffering an injury at the hands of the medical industry and for those afflicted to have a space onine where they can share their stories in a supportive environment.
 
 
 
