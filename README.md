@@ -19,6 +19,7 @@ No installation is necessary - working app is live and deployed on Heroku. If us
 ## Deployed
 
 GitHub Repository : https://github.com/JeffGoji/share-your-story
+<br />
 Heroku Deployment : https://share-your-story-texas.herokuapp.com/
 
 ## Usage
