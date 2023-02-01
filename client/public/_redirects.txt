@@ -1,0 +1,4 @@
+/    /*  /index.html  200!
+/allstories/* /index.html 200!
+/profile/* /index.html 200!
+/resources/* /index.html 200!
